@@ -255,7 +255,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>536</span>
+      <span>466</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -277,27 +277,27 @@
 <span id="more"></span>
 
 <p>如果编写如下代码：</p>
-<pre><code class="python">age = 23
-print(&quot;Happy &quot; + age +&quot;ed Birthday!&quot;)
-</code></pre>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">age <span class="token operator">=</span> <span class="token number">23</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Happy "</span> <span class="token operator">+</span> age <span class="token operator">+</span><span class="token string">"ed Birthday!"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <p>会出现如下报错：</p>
-<pre><code class="python">print(&quot;Happy &quot; + age +&quot;ed Birthday!&quot;)
-TypeError: can only concatenate str (not &quot;int&quot;) to str
-</code></pre>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Happy "</span> <span class="token operator">+</span> age <span class="token operator">+</span><span class="token string">"ed Birthday!"</span><span class="token punctuation">)</span>
+TypeError<span class="token punctuation">:</span> can only concatenate <span class="token builtin">str</span> <span class="token punctuation">(</span><span class="token keyword">not</span> <span class="token string">"int"</span><span class="token punctuation">)</span> to <span class="token builtin">str</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <p>这是一个<strong>类型错误，</strong>意味着python无法识别你使用的变量。</p>
 <p>它不知道age是23还是字符2和3。</p>
 <p>这个时候我们就需要用到str()函数来连接字符串和整数了：</p>
-<pre><code class="python">age = 23 
-message = &quot;Happy &quot; + str(age) + &quot;rd Birthday!&quot; 
-print(message)
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">age <span class="token operator">=</span> <span class="token number">23</span> 
+message <span class="token operator">=</span> <span class="token string">"Happy "</span> <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span>age<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"rd Birthday!"</span> 
+<span class="token keyword">print</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span>
 
-######
-Happy 23rd Birthday!
-</code></pre>
+<span class="token comment">######</span>
+Happy 23rd Birthday!<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>在这里python就知道你用str()函数把23转换为字符串2和3了，但是原变量age未改变</p>
-<pre><code class="python">print(isinstance(age,int))
-True
-</code></pre>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">isinstance</span><span class="token punctuation">(</span>age<span class="token punctuation">,</span><span class="token builtin">int</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token boolean">True</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <p>isinstance(变量名，类型)函数就是检测变量类型的函数，如果匹配则返回true，不匹配则返回False</p>
 
     </div>

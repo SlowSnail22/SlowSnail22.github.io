@@ -28,7 +28,7 @@
 <meta property="og:description" content="NUMPY创建数组在numpy中，创建数组有很多种方法，例如如下的例子：">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-05-29T12:16:39.000Z">
-<meta property="article:modified_time" content="2021-05-29T13:49:24.355Z">
+<meta property="article:modified_time" content="2021-05-30T06:16:38.881Z">
 <meta property="article:author" content="慢蜗牛">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="numpy">
@@ -224,10 +224,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2021-05-29 20:16:39 / 修改时间：21:49:24" itemprop="dateCreated datePublished" datetime="2021-05-29T20:16:39+08:00">2021-05-29</time>
+      <time title="创建时间：2021-05-29 20:16:39" itemprop="dateCreated datePublished" datetime="2021-05-29T20:16:39+08:00">2021-05-29</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-05-30 14:16:38" itemprop="dateModified" datetime="2021-05-30T14:16:38+08:00">2021-05-30</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -250,7 +256,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2.2k</span>
+      <span>2.1k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -271,151 +277,149 @@
         <h1 id="NUMPY"><a href="#NUMPY" class="headerlink" title="NUMPY"></a>NUMPY</h1><h2 id="创建数组"><a href="#创建数组" class="headerlink" title="创建数组"></a>创建数组</h2><p>在numpy中，创建数组有很多种方法，例如如下的例子：</p>
 <span id="more"></span>
 
-<pre><code class="python">import numpy as np
-sws_1 = np.array([0, 1, 2, 3, 4])
-sws_2 = np.array((0, 1, 2, 3, 4))
-sws_3 = np.arange(5) 
-sws_4 = np.linspace(0, 2 * np.pi, 5)
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+sws_1 <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+sws_2 <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+sws_3 <span class="token operator">=</span> np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span> 
+sws_4 <span class="token operator">=</span> np<span class="token punctuation">.</span>linspace<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">2</span> <span class="token operator">*</span> np<span class="token punctuation">.</span>pi<span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span>
  
-print(sws_1[1:3])  # 切片
-print(sws_2)
-print(sws_3)
-print(sws_4)
-print(sws_1[3])
+<span class="token keyword">print</span><span class="token punctuation">(</span>sws_1<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  <span class="token comment"># 切片</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>sws_2<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>sws_3<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>sws_4<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>sws_1<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
  
-######
-[0 1 2 3 4]
-[0 1 2 3 4]
-[0 1 2 3 4]
-[0.         1.57079633 3.14159265 4.71238898 6.28318531]
-3
-</code></pre>
+<span class="token comment">######</span>
+<span class="token punctuation">[</span><span class="token number">0</span> <span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span> <span class="token number">4</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token number">0</span> <span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span> <span class="token number">4</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token number">0</span> <span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span> <span class="token number">4</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">.</span>         <span class="token number">1.57079633</span> <span class="token number">3.14159265</span> <span class="token number">4.71238898</span> <span class="token number">6.28318531</span><span class="token punctuation">]</span>
+<span class="token number">3</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>np.arange()和np.linspace()方法可以参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_53762188/article/details/117167379">python之range()、arange()和linspace()</a>这篇文章</p>
 <p>切片的知识也可以参照<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_53762188/article/details/117044059">python列表之部分列表——切片</a>，毕竟一维数组的切片还是一样的</p>
 <h2 id="多维数组切片"><a href="#多维数组切片" class="headerlink" title="多维数组切片"></a>多维数组切片</h2><p>多维数组的切片要比一维数组复杂一点，但也只是一点点哦，让我们一起来看</p>
-<pre><code class="python">import numpy as np
-from numpy import arange
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<span class="token keyword">from</span> numpy <span class="token keyword">import</span> arange
  
-sws_1 = np.array([arange(0, 5),
-                  arange(5, 10),
-                  arange(10, 15),
-                  arange(15, 20),
-                  arange(20, 25)])
+sws_1 <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span>arange<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                  arange<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                  arange<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                  arange<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                  arange<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
  
-print(sws_1[0, 1:4], &#39;\n&#39;)  # 在第0行进行1：4的切片
-print(sws_1[1:4, 0], &#39;\n&#39;)  # 在第0列进行1：4的切片
-print(sws_1[::2, ::2], &#39;\n&#39;)  # 从列、行的0开始，最后结束，分别步进为2取值
-print(sws_1[:, 1], &#39;\n&#39;)  # 在第一列取所有元素
+<span class="token keyword">print</span><span class="token punctuation">(</span>sws_1<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">:</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'\n'</span><span class="token punctuation">)</span>  <span class="token comment"># 在第0行进行1：4的切片</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>sws_1<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'\n'</span><span class="token punctuation">)</span>  <span class="token comment"># 在第0列进行1：4的切片</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>sws_1<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'\n'</span><span class="token punctuation">)</span>  <span class="token comment"># 从列、行的0开始，最后结束，分别步进为2取值</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>sws_1<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'\n'</span><span class="token punctuation">)</span>  <span class="token comment"># 在第一列取所有元素</span>
  
-######
-[1 2 3] 
+<span class="token comment">######</span>
+<span class="token punctuation">[</span><span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span><span class="token punctuation">]</span> 
  
-[ 5 10 15] 
+<span class="token punctuation">[</span> <span class="token number">5</span> <span class="token number">10</span> <span class="token number">15</span><span class="token punctuation">]</span> 
  
-[[ 0  2  4]
- [10 12 14]
- [20 22 24]] 
+<span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token number">0</span>  <span class="token number">2</span>  <span class="token number">4</span><span class="token punctuation">]</span>
+ <span class="token punctuation">[</span><span class="token number">10</span> <span class="token number">12</span> <span class="token number">14</span><span class="token punctuation">]</span>
+ <span class="token punctuation">[</span><span class="token number">20</span> <span class="token number">22</span> <span class="token number">24</span><span class="token punctuation">]</span><span class="token punctuation">]</span> 
  
-[ 1  6 11 16 21]
-</code></pre>
-<h2 id="数组属性"><a href="#数组属性" class="headerlink" title="数组属性"></a>数组属性</h2><pre><code class="python">import numpy as np
-from numpy import arange
+<span class="token punctuation">[</span> <span class="token number">1</span>  <span class="token number">6</span> <span class="token number">11</span> <span class="token number">16</span> <span class="token number">21</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="数组属性"><a href="#数组属性" class="headerlink" title="数组属性"></a>数组属性</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<span class="token keyword">from</span> numpy <span class="token keyword">import</span> arange
  
-sws_1 = np.array([arange(0, 5),
-                  arange(5, 10),
-                  arange(10, 15),
-                  arange(15, 20),
-                  arange(20, 25)])
+sws_1 <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span>arange<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                  arange<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                  arange<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                  arange<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                  arange<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
  
-print(type(sws_1))  # 数据结构类型，如list，dict等
-print(sws_1.dtype)  # 数据元素类型，如int，float等，还有位的大小
-print(sws_1.size)  # 统计元素个数
-print(sws_1.shape)  # 相当于数学里的（x，y，z）
-print(sws_1.itemsize)  # 每项占用的字节数，一个字节有8位
-print(sws_1.ndim)  # 数组的维度
-print(sws_1.nbytes)  # 数组中所有数据消耗的总字节
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">type</span><span class="token punctuation">(</span>sws_1<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># 数据结构类型，如list，dict等</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>sws_1<span class="token punctuation">.</span>dtype<span class="token punctuation">)</span>  <span class="token comment"># 数据元素类型，如int，float等，还有位的大小</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>sws_1<span class="token punctuation">.</span>size<span class="token punctuation">)</span>  <span class="token comment"># 统计元素个数</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>sws_1<span class="token punctuation">.</span>shape<span class="token punctuation">)</span>  <span class="token comment"># 相当于数学里的（x，y，z）</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>sws_1<span class="token punctuation">.</span>itemsize<span class="token punctuation">)</span>  <span class="token comment"># 每项占用的字节数，一个字节有8位</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>sws_1<span class="token punctuation">.</span>ndim<span class="token punctuation">)</span>  <span class="token comment"># 数组的维度</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>sws_1<span class="token punctuation">.</span>nbytes<span class="token punctuation">)</span>  <span class="token comment"># 数组中所有数据消耗的总字节</span>
  
-######
-&lt;class &#39;numpy.ndarray&#39;&gt;
+<span class="token comment">######</span>
+<span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'numpy.ndarray'</span><span class="token operator">></span>
 int32
-25
-(5, 5)
-4
-2
-100
-</code></pre>
+<span class="token number">25</span>
+<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span>
+<span class="token number">4</span>
+<span class="token number">2</span>
+<span class="token number">100</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="使用数组"><a href="#使用数组" class="headerlink" title="使用数组"></a>使用数组</h2><p>基本操作符+、-、*、/、**、&lt;、&gt;和dot()</p>
-<pre><code class="python">import numpy as np
-from numpy import arange
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<span class="token keyword">from</span> numpy <span class="token keyword">import</span> arange
  
-sws_0 = arange(30, 55)
-sws_0 = sws_0.reshape((5, 5))  # 让sws_0的所有元素按照（5，5）的维度排列
+sws_0 <span class="token operator">=</span> arange<span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">55</span><span class="token punctuation">)</span>
+sws_0 <span class="token operator">=</span> sws_0<span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># 让sws_0的所有元素按照（5，5）的维度排列</span>
  
-sws_1 = np.array([arange(0, 5),
-                  arange(5, 10),
-                  arange(10, 15),
-                  arange(15, 20),
-                  arange(20, 25)])
+sws_1 <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span>arange<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                  arange<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                  arange<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                  arange<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                  arange<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
  
  
-# 对应索引位置的元素进行运算
-print(sws_0 + sws_1)
-print(sws_0 - sws_1)
-print(sws_0 * sws_1)
-print(sws_0 / sws_1)
-print(sws_0 ** 2)
-print(sws_0 &lt; sws_1)
-print(sws_0 &gt; sws_1)
+<span class="token comment"># 对应索引位置的元素进行运算</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>sws_0 <span class="token operator">+</span> sws_1<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>sws_0 <span class="token operator">-</span> sws_1<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>sws_0 <span class="token operator">*</span> sws_1<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>sws_0 <span class="token operator">/</span> sws_1<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>sws_0 <span class="token operator">**</span> <span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>sws_0 <span class="token operator">&lt;</span> sws_1<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>sws_0 <span class="token operator">></span> sws_1<span class="token punctuation">)</span>
  
-# 矩阵的乘法
-print(sws_0.dot(sws_1))
-</code></pre>
+<span class="token comment"># 矩阵的乘法</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>sws_0<span class="token punctuation">.</span>dot<span class="token punctuation">(</span>sws_1<span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>至于结果就不给大家发出来啦，毕竟太长了嘛，占篇幅，大家看着也疲劳，不过大家要自己动手试试哦</p>
 <h2 id="数组特殊运算符"><a href="#数组特殊运算符" class="headerlink" title="数组特殊运算符"></a>数组特殊运算符</h2><p>如果要找数组中的一些特殊值，比如最大、最小或者求和呀，这里也可以很方便的</p>
-<pre><code class="python">from numpy import arange
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> numpy <span class="token keyword">import</span> arange
  
-sws_0 = arange(10)
- 
- 
-print(sws_0.sum())
-print(sws_0.min())
-print(sws_0.max())
-print(sws_0.cumsum())  
-# 第一位先存入一个列表，然后第一位加第二位再存入列表，之后再加上第三位存入列表，以此类推
+sws_0 <span class="token operator">=</span> arange<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
  
  
-######
-45
-0
-9
-[ 0  1  3  6 10 15 21 28 36 45]
-</code></pre>
-<h2 id="花式索引"><a href="#花式索引" class="headerlink" title="花式索引"></a>花式索引</h2><pre><code class="python">import numpy as np
- 
-sws_0 = np.arange(0, 10)
-sws_1 = sws_0[[1, 5, -1]]  
-# 用一个列表包装想要打印的元素的索引
-sws_2 = sws_0[sws_0 &gt;= 6]  
-# 根据条件判断
-sws_3 = np.where(sws_0 &lt;= 6)  
-# 返回满足条件的元素的索引
-sws_4 = np.where(sws_0 &gt;= 6)[0]
+<span class="token keyword">print</span><span class="token punctuation">(</span>sws_0<span class="token punctuation">.</span><span class="token builtin">sum</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>sws_0<span class="token punctuation">.</span><span class="token builtin">min</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>sws_0<span class="token punctuation">.</span><span class="token builtin">max</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>sws_0<span class="token punctuation">.</span>cumsum<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  
+<span class="token comment"># 第一位先存入一个列表，然后第一位加第二位再存入列表，之后再加上第三位存入列表，以此类推</span>
  
  
-print(sws_0)
-print(sws_1)
-print(sws_2)
-print(sws_3)
-print(sws_4)
- 
-######
-[0 1 2 3 4 5 6 7 8 9]
-[1 5 9]
-[6 7 8 9]
-(array([0, 1, 2, 3, 4, 5, 6], dtype=int64),)
-[6 7 8 9]
-</code></pre>
+<span class="token comment">######</span>
+<span class="token number">45</span>
+<span class="token number">0</span>
+<span class="token number">9</span>
+<span class="token punctuation">[</span> <span class="token number">0</span>  <span class="token number">1</span>  <span class="token number">3</span>  <span class="token number">6</span> <span class="token number">10</span> <span class="token number">15</span> <span class="token number">21</span> <span class="token number">28</span> <span class="token number">36</span> <span class="token number">45</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h2 id="花式索引"><a href="#花式索引" class="headerlink" title="花式索引"></a>花式索引</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+ 
+sws_0 <span class="token operator">=</span> np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span>
+sws_1 <span class="token operator">=</span> sws_0<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span>  
+<span class="token comment"># 用一个列表包装想要打印的元素的索引</span>
+sws_2 <span class="token operator">=</span> sws_0<span class="token punctuation">[</span>sws_0 <span class="token operator">>=</span> <span class="token number">6</span><span class="token punctuation">]</span>  
+<span class="token comment"># 根据条件判断</span>
+sws_3 <span class="token operator">=</span> np<span class="token punctuation">.</span>where<span class="token punctuation">(</span>sws_0 <span class="token operator">&lt;=</span> <span class="token number">6</span><span class="token punctuation">)</span>  
+<span class="token comment"># 返回满足条件的元素的索引</span>
+sws_4 <span class="token operator">=</span> np<span class="token punctuation">.</span>where<span class="token punctuation">(</span>sws_0 <span class="token operator">>=</span> <span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+ 
+ 
+<span class="token keyword">print</span><span class="token punctuation">(</span>sws_0<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>sws_1<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>sws_2<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>sws_3<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>sws_4<span class="token punctuation">)</span>
+ 
+<span class="token comment">######</span>
+<span class="token punctuation">[</span><span class="token number">0</span> <span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span> <span class="token number">4</span> <span class="token number">5</span> <span class="token number">6</span> <span class="token number">7</span> <span class="token number">8</span> <span class="token number">9</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token number">1</span> <span class="token number">5</span> <span class="token number">9</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token number">6</span> <span class="token number">7</span> <span class="token number">8</span> <span class="token number">9</span><span class="token punctuation">]</span>
+<span class="token punctuation">(</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">,</span> dtype<span class="token operator">=</span>int64<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">)</span>
+<span class="token punctuation">[</span><span class="token number">6</span> <span class="token number">7</span> <span class="token number">8</span> <span class="token number">9</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
     </div>
 
     
