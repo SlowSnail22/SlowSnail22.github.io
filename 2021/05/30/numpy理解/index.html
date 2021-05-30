@@ -249,7 +249,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>3.2k</span>
+      <span>3.1k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -278,45 +278,129 @@
 <li><strong>数学任务：</strong>我们平时学习高数中的积分、微分等是不是觉得很头疼呢，但是numpy确实非常简单，并且会使得python替代matlab</li>
 </ul>
 <h1 id="numpy的安装"><a href="#numpy的安装" class="headerlink" title="numpy的安装"></a>numpy的安装</h1><p>关于numpy最快速简单的安装方法就是在shell上使用</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install numpy</span><br></pre></td></tr></table></figure>
-
+<pre><code class="python">pip install numpy
+</code></pre>
 <p>但是如果你的pip不是最新版本21.1.1的话，是会下载失败的，查看pip版本用以下命令</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">pip show pip</span><br><span class="line"> </span><br><span class="line"><span class="comment">######</span></span><br><span class="line">Name: pip</span><br><span class="line">Version: <span class="number">21.1</span><span class="number">.1</span> </span><br><span class="line">Summary: The PyPA recommended tool <span class="keyword">for</span> installing Python packages.</span><br><span class="line">Home-page: https://pip.pypa.io/</span><br><span class="line">Author: The pip developers</span><br><span class="line">Author-email: distutils-sig@python.org</span><br><span class="line">License: MIT</span><br><span class="line">Location: d:\pythonproject\venv\lib\site-packages</span><br><span class="line">Requires:</span><br><span class="line">Required-by:</span><br></pre></td></tr></table></figure>
-
+<pre><code class="python">pip show pip
+ 
+######
+Name: pip
+Version: 21.1.1 
+Summary: The PyPA recommended tool for installing Python packages.
+Home-page: https://pip.pypa.io/
+Author: The pip developers
+Author-email: distutils-sig@python.org
+License: MIT
+Location: d:\pythonproject\venv\lib\site-packages
+Requires:
+Required-by:
+</code></pre>
 <p>而更新pip则用如下命令</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m pip install --upgrade pip</span><br></pre></td></tr></table></figure>
-
+<pre><code class="python">python -m pip install --upgrade pip
+</code></pre>
 <h1 id="numpy数组"><a href="#numpy数组" class="headerlink" title="numpy数组"></a>numpy数组</h1><p>numpy数组是numpy提供的最重要的数据结构，他是python列表的扩展，但是却具备大量的函数和运算符，可以帮助我们快速编写各种复杂计算的代码。</p>
-<h2 id="定义numpy数组"><a href="#定义numpy数组" class="headerlink" title="定义numpy数组"></a>定义numpy数组</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np  <span class="comment"># 给numpy定义一个别的名字np</span></span><br><span class="line">sws_array = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]) </span><br><span class="line"><span class="built_in">print</span>(sws_array)</span><br></pre></td></tr></table></figure>
-
+<h2 id="定义numpy数组"><a href="#定义numpy数组" class="headerlink" title="定义numpy数组"></a>定义numpy数组</h2><pre><code class="python">import numpy as np  # 给numpy定义一个别的名字np
+sws_array = np.array([1, 2, 3, 4, 5]) 
+print(sws_array)
+</code></pre>
 <p>我们这里先用as给numpy去一个缩写np，使得我们的代码更加简洁，再用import导入numpy库。然后我们创建了5个整数的numpy数组，最后将其打印出来。我们在自己的电脑上尝试的时候，一定一定一定要记得提前安装好numpy库噢！！！</p>
 <h2 id="numpy数组的相关功能"><a href="#numpy数组的相关功能" class="headerlink" title="numpy数组的相关功能"></a>numpy数组的相关功能</h2><p>其实numpy数组和python列表基本没什么差别，python列表能完成的，numpy数组也能，例如</p>
-<h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np  <span class="comment"># 给numpy定义一个别的名字np</span></span><br><span class="line">sws_array = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]) </span><br><span class="line"><span class="built_in">print</span>(sws_array)</span><br><span class="line"> </span><br><span class="line"><span class="built_in">print</span>(sws_array.shape)  <span class="comment">#数组的长度</span></span><br><span class="line"> </span><br><span class="line"><span class="built_in">print</span>(sws_array[<span class="number">0</span>])  <span class="comment">#打印索引为0的元素</span></span><br><span class="line"> </span><br><span class="line">sws_array[<span class="number">0</span>] = -<span class="number">6</span>  <span class="comment">#修改索引为0的元素</span></span><br><span class="line"><span class="built_in">print</span>(sws_array[<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
-
+<h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><pre><code class="python">import numpy as np  # 给numpy定义一个别的名字np
+sws_array = np.array([1, 2, 3, 4, 5]) 
+print(sws_array)
+ 
+print(sws_array.shape)  #数组的长度
+ 
+print(sws_array[0])  #打印索引为0的元素
+ 
+sws_array[0] = -6  #修改索引为0的元素
+print(sws_array[0])
+</code></pre>
 <p>以上代码，大家都可以自己在电脑上尝试一下，我就不一一举例了，我们主要来看看numpy的独特算法</p>
-<h3 id="0数组和1数组"><a href="#0数组和1数组" class="headerlink" title="0数组和1数组"></a>0数组和1数组</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np  <span class="comment"># 给numpy定义一个别的名字np</span></span><br><span class="line">sws_zeros_array = np.zeros(<span class="number">5</span>)</span><br><span class="line"><span class="built_in">print</span>(sws_zeros_array)</span><br><span class="line"> </span><br><span class="line">sws_ones_array = np.ones(<span class="number">5</span>)</span><br><span class="line"><span class="built_in">print</span>(sws_ones_array)</span><br><span class="line"> </span><br><span class="line"><span class="comment">######</span></span><br><span class="line">[<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line">[<span class="number">1.</span> <span class="number">1.</span> <span class="number">1.</span> <span class="number">1.</span> <span class="number">1.</span>]</span><br></pre></td></tr></table></figure>
-
+<h3 id="0数组和1数组"><a href="#0数组和1数组" class="headerlink" title="0数组和1数组"></a>0数组和1数组</h3><pre><code class="python">import numpy as np  # 给numpy定义一个别的名字np
+sws_zeros_array = np.zeros(5)
+print(sws_zeros_array)
+ 
+sws_ones_array = np.ones(5)
+print(sws_ones_array)
+ 
+######
+[0. 0. 0. 0. 0.]
+[1. 1. 1. 1. 1.]
+</code></pre>
 <p>我们可以看到第二行用 np.zeros，第四行用np.ones就创建了相应的只含0，1的5个元素的数组，至于有没有其他的呢，大家可以自己动手试验一下</p>
 <h3 id="随机数组"><a href="#随机数组" class="headerlink" title="随机数组"></a>随机数组</h3><p>我们玩腻了0和1，现在想玩点高难度的，好，满足你，我们来随机数组</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np  <span class="comment"># 给numpy定义一个别的名字np</span></span><br><span class="line">sws_random_array = np.random.random(<span class="number">5</span>)</span><br><span class="line"><span class="built_in">print</span>(sws_random_array)</span><br><span class="line"> </span><br><span class="line"><span class="comment">######</span></span><br><span class="line">[<span class="number">0.4732169</span>  <span class="number">0.46246392</span> <span class="number">0.11748248</span> <span class="number">0.68879901</span> <span class="number">0.43405514</span>]</span><br></pre></td></tr></table></figure>
-
+<pre><code class="python">import numpy as np  # 给numpy定义一个别的名字np
+sws_random_array = np.random.random(5)
+print(sws_random_array)
+ 
+######
+[0.4732169  0.46246392 0.11748248 0.68879901 0.43405514]
+</code></pre>
 <p>我们可以看到这里就打印了5个随机数组，当然你们操作的时候可能会和我的不一样，因为是在0-1之间的随机数嘛，哈哈哈，如果一样的话，那慢蜗牛岂不是可以去买彩票了，如果大家不满足0-1的话，可以尝试*10等操作看看结果啦</p>
 <h3 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h3><p>一维数组说完了，我们现在来看看二维数组(i,j),这里i表示了行数，j表示了列数</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np  <span class="comment"># 给numpy定义一个别的名字np</span></span><br><span class="line">sws_2d_array = np.random.random((<span class="number">2</span>, <span class="number">3</span>)) * <span class="number">10</span></span><br><span class="line"><span class="built_in">print</span>(sws_2d_array)</span><br><span class="line"> </span><br><span class="line"><span class="comment">######</span></span><br><span class="line">[[<span class="number">9.50442357</span> <span class="number">1.3031723</span>  <span class="number">9.3511404</span> ]</span><br><span class="line"> [<span class="number">3.44925167</span> <span class="number">2.25456602</span> <span class="number">2.27545946</span>]]</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sws_array = np.array([[<span class="number">1</span>, <span class="number">2</span>], [<span class="number">6</span>, <span class="number">9</span>]])</span><br><span class="line"><span class="built_in">print</span>(sws_array[<span class="number">1</span>][<span class="number">0</span>])</span><br><span class="line"> </span><br><span class="line"><span class="comment">######</span></span><br><span class="line"><span class="number">6</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="python">import numpy as np  # 给numpy定义一个别的名字np
+sws_2d_array = np.random.random((2, 3)) * 10
+print(sws_2d_array)
+ 
+######
+[[9.50442357 1.3031723  9.3511404 ]
+ [3.44925167 2.25456602 2.27545946]]
+</code></pre>
+<pre><code class="python">sws_array = np.array([[1, 2], [6, 9]])
+print(sws_array[1][0])
+ 
+######
+6
+</code></pre>
 <p>我们可以看到上面的相关操作，是不是觉得很熟悉呢，没错啦，和我们C语言中的二维数组就是一模一样的操作啦，哈哈哈哈</p>
 <p>那我们现在来看看numpy特有的二维数组的操作</p>
 <p>如果我们想以此输出某个列或者行的所有元素怎么办呢，这里就可以用到我们的冒号啦</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sws_array_lie_0 = sws_array[:, <span class="number">1</span>]</span><br><span class="line"><span class="built_in">print</span>(sws_array_lie_0)</span><br><span class="line"> </span><br><span class="line"><span class="comment">######</span></span><br><span class="line">[<span class="number">2</span> <span class="number">9</span>]</span><br></pre></td></tr></table></figure>
-
+<pre><code class="python">sws_array_lie_0 = sws_array[:, 1]
+print(sws_array_lie_0)
+ 
+######
+[2 9]
+</code></pre>
 <p>我们这里是选择打印索引为1的列的所有元素，大家可以尝试一下打印行哈</p>
 <h1 id="numpy的数组操作"><a href="#numpy的数组操作" class="headerlink" title="numpy的数组操作"></a>numpy的数组操作</h1><p>不知道大家有没有学过线性代数呢，大家在面对矩阵的相乘等操作时，是不是头疼欲裂呢，不要着急，慢蜗牛教程在手，天下我有，一起来看看下面的例子吧</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">sws_1 = np.array([[<span class="number">1.0</span>, <span class="number">2.0</span>], [<span class="number">3.0</span>, <span class="number">4.0</span>]])</span><br><span class="line">sws_2 = np.array([[<span class="number">5.0</span>, <span class="number">6.0</span>], [<span class="number">7.0</span>, <span class="number">8.0</span>]])</span><br><span class="line">sum_0 = sws_1 + sws_2</span><br><span class="line">subtract = sws_1 - sws_2</span><br><span class="line">multiply = sws_1 * sws_2</span><br><span class="line">division = sws_1 / sws_2</span><br><span class="line"> </span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;sum_0=\n&#x27;</span>, sum_0)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;subtract=\n&#x27;</span>, subtract)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;multiply=\n&#x27;</span>, multiply)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;division=\n&#x27;</span>, division)</span><br><span class="line"> </span><br><span class="line"><span class="comment">######</span></span><br><span class="line">sum_0=</span><br><span class="line"> [[ <span class="number">6.</span>  <span class="number">8.</span>]</span><br><span class="line"> [<span class="number">10.</span> <span class="number">12.</span>]]</span><br><span class="line">subtract=</span><br><span class="line"> [[-<span class="number">4.</span> -<span class="number">4.</span>]</span><br><span class="line"> [-<span class="number">4.</span> -<span class="number">4.</span>]]</span><br><span class="line">multiply=</span><br><span class="line"> [[ <span class="number">5.</span> <span class="number">12.</span>]</span><br><span class="line"> [<span class="number">21.</span> <span class="number">32.</span>]]</span><br><span class="line">division=</span><br><span class="line"> [[<span class="number">0.2</span>        <span class="number">0.33333333</span>]</span><br><span class="line"> [<span class="number">0.42857143</span> <span class="number">0.5</span>       ]]</span><br></pre></td></tr></table></figure>
-
+<pre><code class="python">
+import numpy as np
+sws_1 = np.array([[1.0, 2.0], [3.0, 4.0]])
+sws_2 = np.array([[5.0, 6.0], [7.0, 8.0]])
+sum_0 = sws_1 + sws_2
+subtract = sws_1 - sws_2
+multiply = sws_1 * sws_2
+division = sws_1 / sws_2
+ 
+print(&#39;sum_0=\n&#39;, sum_0)
+print(&#39;subtract=\n&#39;, subtract)
+print(&#39;multiply=\n&#39;, multiply)
+print(&#39;division=\n&#39;, division)
+ 
+######
+sum_0=
+ [[ 6.  8.]
+ [10. 12.]]
+subtract=
+ [[-4. -4.]
+ [-4. -4.]]
+multiply=
+ [[ 5. 12.]
+ [21. 32.]]
+division=
+ [[0.2        0.33333333]
+ [0.42857143 0.5       ]]
+</code></pre>
 <p>我们可以观察到，打印的结果都是对应索引的元素进行相关操作，如果要进行矩阵乘法，我们还需要加一点料</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">matrix_multiply = sws_1.dot(sws_2)</span><br><span class="line"><span class="built_in">print</span>(matrix_multiply)</span><br><span class="line"> </span><br><span class="line"><span class="comment">######</span></span><br><span class="line">[[<span class="number">19.</span> <span class="number">22.</span>]</span><br><span class="line"> [<span class="number">43.</span> <span class="number">50.</span>]]</span><br></pre></td></tr></table></figure>
+<pre><code class="python">matrix_multiply = sws_1.dot(sws_2)
+print(matrix_multiply)
+ 
+######
+[[19. 22.]
+ [43. 50.]]
+</code></pre>
+
     </div>
 
     
@@ -394,9 +478,11 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">6 分钟</span>
+    <span title="站点阅读时长">5 分钟</span>
   </span>
-</div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
 
 
     </div>
