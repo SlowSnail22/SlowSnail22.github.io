@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-sws.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-sws.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-sws.png">
+  <link rel="mask-icon" href="/images/logo-sws.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic%7CLobster+Two:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;slowsnail22.github.io&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Gemini&quot;,&quot;version&quot;:&quot;8.4.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;width&quot;:240,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:true,&quot;bookmark&quot;:{&quot;enable&quot;:true,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:true,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:false}}</script>
+<meta name="description" content="分享完了面对对象的三大特征：封装、继承和多态之后，我们再来看一下特殊属性和特殊方法  特殊属性  _dict_:获得类对象或实例对象所绑定的所有属性和方法的字典 _class_:查看对象所属类 _bases_:查看子类继承的父类 _mro_:查看类的层次结构 _subclasses_:查看父类被继承的子类   特殊方法  _len_():通过重写，让内置函数len()的参数可以是自定义类型 _ad">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python之特殊属性和特殊方法">
+<meta property="og:url" content="https://slowsnail22.github.io/2021/05/30/python%E4%B9%8B%E7%89%B9%E6%AE%8A%E5%B1%9E%E6%80%A7%E5%92%8C%E7%89%B9%E6%AE%8A%E6%96%B9%E6%B3%95/index.html">
+<meta property="og:site_name" content="SlowSnail">
+<meta property="og:description" content="分享完了面对对象的三大特征：封装、继承和多态之后，我们再来看一下特殊属性和特殊方法  特殊属性  _dict_:获得类对象或实例对象所绑定的所有属性和方法的字典 _class_:查看对象所属类 _bases_:查看子类继承的父类 _mro_:查看类的层次结构 _subclasses_:查看父类被继承的子类   特殊方法  _len_():通过重写，让内置函数len()的参数可以是自定义类型 _ad">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="e:/SlowSnail22.github.io/source/photo/20210521123512111.png">
+<meta property="article:published_time" content="2021-05-30T08:34:04.000Z">
+<meta property="article:modified_time" content="2021-05-30T09:37:27.225Z">
+<meta property="article:author" content="慢蜗牛">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="特殊属性，特殊方法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="e:/SlowSnail22.github.io/source/photo/20210521123512111.png">
+
+
+<link rel="canonical" href="https://slowsnail22.github.io/2021/05/30/python%E4%B9%8B%E7%89%B9%E6%AE%8A%E5%B1%9E%E6%80%A7%E5%92%8C%E7%89%B9%E6%AE%8A%E6%96%B9%E6%B3%95/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;slowsnail22.github.io&#x2F;2021&#x2F;05&#x2F;30&#x2F;python%E4%B9%8B%E7%89%B9%E6%AE%8A%E5%B1%9E%E6%80%A7%E5%92%8C%E7%89%B9%E6%AE%8A%E6%96%B9%E6%B3%95&#x2F;&quot;,&quot;path&quot;:&quot;2021&#x2F;05&#x2F;30&#x2F;python之特殊属性和特殊方法&#x2F;&quot;,&quot;title&quot;:&quot;python之特殊属性和特殊方法&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>python之特殊属性和特殊方法 | SlowSnail</title><script src="/js/config.js"></script><link rel="stylesheet" type="text/css" href="/css/injector/main.css" /><link rel="preload" as="style" href="/css/injector/light.css" /><link rel="preload" as="style" href="/css/injector/dark.css" />
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">SlowSnail</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">免费</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-主页"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>主页</a></li>
+        <li class="menu-item menu-item-标签"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-分类"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-时间线"><a href="/archives/" rel="section"><i class="fas fa-stream fa-fw"></i>时间线</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%89%B9%E6%AE%8A%E5%B1%9E%E6%80%A7"><span class="nav-number">1.</span> <span class="nav-text">特殊属性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#dict-%E6%9F%A5%E7%9C%8B%E5%B1%9E%E6%80%A7%E5%92%8C%E6%96%B9%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text">__dict__查看属性和方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#class-%E6%9F%A5%E7%9C%8B%E5%AF%B9%E8%B1%A1%E6%89%80%E5%B1%9E%E7%B1%BB"><span class="nav-number">1.2.</span> <span class="nav-text">__class__查看对象所属类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bases-%E6%9F%A5%E7%9C%8B%E5%AD%90%E7%B1%BB%E7%9A%84%E7%88%B6%E7%B1%BB"><span class="nav-number">1.3.</span> <span class="nav-text">__bases__查看子类的父类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mro-%E6%9F%A5%E7%9C%8B%E7%B1%BB%E7%9A%84%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84"><span class="nav-number">1.4.</span> <span class="nav-text">__mro__查看类的层次结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#subclasses-%E6%9F%A5%E7%9C%8B%E7%88%B6%E7%B1%BB%E8%A2%AB%E7%BB%A7%E6%89%BF%E7%9A%84%E5%AD%90%E7%B1%BB"><span class="nav-number">1.5.</span> <span class="nav-text">__subclasses__查看父类被继承的子类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%89%B9%E6%AE%8A%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">特殊方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#add-%E7%B1%BB%E7%9A%84%E5%AF%B9%E8%B1%A1%E7%9B%B8%E5%8A%A0"><span class="nav-number">2.1.</span> <span class="nav-text">_add_()类的对象相加</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#len-%E7%B1%BB%E7%9A%84%E5%AF%B9%E8%B1%A1%E7%9A%84%E9%95%BF%E5%BA%A6"><span class="nav-number">2.2.</span> <span class="nav-text">_len_()类的对象的长度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#new-%E5%92%8C-init"><span class="nav-number">2.3.</span> <span class="nav-text">__new__()和_init_()</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="慢蜗牛"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">慢蜗牛</p>
+  <div class="site-description" itemprop="description">share!!!free!!!</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/SlowSnail22" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;SlowSnail22" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:SlowSnail22@outlook.com" title="E-Mail → mailto:SlowSnail22@outlook.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.csdn.net/qq_53762188" title="CSDN → https:&#x2F;&#x2F;www.csdn.net&#x2F;qq_53762188" rel="noopener" target="_blank"><i class="fab fa-cuttlefish fa-fw"></i>CSDN</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://slowsnail22.github.io/2021/05/30/python%E4%B9%8B%E7%89%B9%E6%AE%8A%E5%B1%9E%E6%80%A7%E5%92%8C%E7%89%B9%E6%AE%8A%E6%96%B9%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="慢蜗牛">
+      <meta itemprop="description" content="share!!!free!!!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SlowSnail">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          python之特殊属性和特殊方法
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-05-30 16:34:04 / 修改时间：17:37:27" itemprop="dateCreated datePublished" datetime="2021-05-30T16:34:04+08:00">2021-05-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/python/%E5%85%A5%E9%97%A8/" itemprop="url" rel="index"><span itemprop="name">入门</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan：</span>
+    
+    
+      <a title="changyan" href="/2021/05/30/python%E4%B9%8B%E7%89%B9%E6%AE%8A%E5%B1%9E%E6%80%A7%E5%92%8C%E7%89%B9%E6%AE%8A%E6%96%B9%E6%B3%95/#SOHUCS" itemprop="discussionUrl">
+        <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2021/05/30/python之特殊属性和特殊方法/" itemprop="commentCount"></span>
+      </a>
+    
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>分享完了面对对象的三大特征：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_53762188/article/details/116999907">封装</a>、<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_53762188/article/details/117000917">继承</a>和<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_53762188/article/details/117109717">多态</a>之后，我们再来看一下特殊属性和特殊方法</p>
+<ul>
+<li><p>特殊属性</p>
+<ul>
+<li>_<em>dict</em>_:获得类对象或实例对象所绑定的所有属性和方法的字典</li>
+<li>_<em>class</em>_:查看对象所属类</li>
+<li>_<em>bases</em>_:查看子类继承的父类</li>
+<li>_<em>mro</em>_:查看类的层次结构</li>
+<li>_<em>subclasses</em>_:查看父类被继承的子类</li>
+</ul>
+</li>
+<li><p>特殊方法</p>
+<ul>
+<li>_<em>len</em>_():通过重写，让内置函数len()的参数可以是自定义类型</li>
+<li>_<em>add</em>_():通过重写，可使用自定义对象具有“+”功能</li>
+<li>_<em>new</em>_():用于创建对象</li>
+<li>_<em>init</em>_():对创建对象进行初始化</li>
+</ul>
+</li>
+</ul>
+<span id="more"></span>
+
+<h1 id="特殊属性"><a href="#特殊属性" class="headerlink" title="特殊属性"></a>特殊属性</h1><h2 id="dict-查看属性和方法"><a href="#dict-查看属性和方法" class="headerlink" title="__dict__查看属性和方法"></a>__dict__查看属性和方法</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">A</span><span class="token punctuation">:</span>
+    <span class="token keyword">pass</span>
+ 
+ 
+<span class="token keyword">class</span> <span class="token class-name">B</span><span class="token punctuation">:</span>
+    <span class="token keyword">pass</span>
+ 
+ 
+<span class="token comment"># 多继承</span>
+<span class="token keyword">class</span> <span class="token class-name">C</span><span class="token punctuation">(</span>A<span class="token punctuation">,</span> B<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token punctuation">,</span> age<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>name <span class="token operator">=</span> name
+        self<span class="token punctuation">.</span>age <span class="token operator">=</span> age
+ 
+ 
+<span class="token comment"># 创建C类的对象</span>
+x <span class="token operator">=</span> C<span class="token punctuation">(</span><span class="token string">'SWS'</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span>  <span class="token comment"># x是C类的实例对象</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>__dict__<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>我们这里有两个A，B类，然后C类多继承了他们，关于多继承可以看看<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_53762188/article/details/117000917">python之继承及其实现方法</a>，然后就定义了一个__init__()初始化的方法并且定义了两个实例属性name和age，那我们现在就可以用__dict__来查看我们的C类对象x的所有属性和方法</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token punctuation">&#123;</span><span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'SWS'</span><span class="token punctuation">,</span> <span class="token string">'age'</span><span class="token punctuation">:</span> <span class="token number">20</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>那我们再来看看C类的属性和方法</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 创建C类的对象</span>
+x <span class="token operator">=</span> C<span class="token punctuation">(</span><span class="token string">'SWS'</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span>  <span class="token comment"># x是C类的实例对象</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>__dict__<span class="token punctuation">)</span>  <span class="token comment"># 实例对象的属性字典</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>C<span class="token punctuation">.</span>__dict__<span class="token punctuation">)</span>  <span class="token comment">#类对象的属性字典</span>
+
+<span class="token comment">######</span>
+<span class="token punctuation">&#123;</span><span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'SWS'</span><span class="token punctuation">,</span> <span class="token string">'age'</span><span class="token punctuation">:</span> <span class="token number">20</span><span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#123;</span><span class="token string">'__module__'</span><span class="token punctuation">:</span> <span class="token string">'__main__'</span><span class="token punctuation">,</span> <span class="token string">'__init__'</span><span class="token punctuation">:</span> <span class="token operator">&lt;</span>function C<span class="token punctuation">.</span>__init__ at <span class="token number">0x000001F3AB41FB80</span><span class="token operator">></span><span class="token punctuation">,</span> <span class="token string">'__doc__'</span><span class="token punctuation">:</span> <span class="token boolean">None</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>那我们现在就可以看到C类的属性’_<em>module__‘;’__main__‘之后就接了’__init</em>_’方法</p>
+<h2 id="class-查看对象所属类"><a href="#class-查看对象所属类" class="headerlink" title="__class__查看对象所属类"></a>__class__查看对象所属类</h2><p>我们用__dict__可以查看属性和方法，当然还可以查看对象所属的类是什么啦</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>__class__<span class="token punctuation">)</span>
+
+<span class="token comment">######</span>
+<span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'__main__.C'</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>我们现在就可以看到x对象所属的类是C类</p>
+<h2 id="bases-查看子类的父类"><a href="#bases-查看子类的父类" class="headerlink" title="__bases__查看子类的父类"></a>__bases__查看子类的父类</h2><p>现在由对象可以看到类，那么由子类可不可以看到父类呢，答案当然是可以的啦，不过这事就要用到__bases__啦</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span>C<span class="token punctuation">.</span>__bases__<span class="token punctuation">)</span>
+
+<span class="token comment">######</span>
+<span class="token punctuation">(</span><span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'__main__.A'</span><span class="token operator">></span><span class="token punctuation">,</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'__main__.B'</span><span class="token operator">></span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这样我们就可以看到C类的父类类型的元素A,B啦</p>
+<h2 id="mro-查看类的层次结构"><a href="#mro-查看类的层次结构" class="headerlink" title="__mro__查看类的层次结构"></a>__mro__查看类的层次结构</h2><p>那我们现在可以查看子类的父类了，但是又觉得一层一层看太麻烦了怎么办，那这个时候我们就可以查看层次结构来一目了然</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span>C<span class="token punctuation">.</span>__mro__<span class="token punctuation">)</span>
+
+<span class="token comment">######</span>
+<span class="token punctuation">(</span><span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'__main__.C'</span><span class="token operator">></span><span class="token punctuation">,</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'__main__.A'</span><span class="token operator">></span><span class="token punctuation">,</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'__main__.B'</span><span class="token operator">></span><span class="token punctuation">,</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'object'</span><span class="token operator">></span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>现在是不是觉得看过去一目了然，很方便了呢</p>
+<h2 id="subclasses-查看父类被继承的子类"><a href="#subclasses-查看父类被继承的子类" class="headerlink" title="__subclasses__查看父类被继承的子类"></a>__subclasses__查看父类被继承的子类</h2><p>现在有人不高兴了说，凭什么可以子类查看父类，不可以父类查看子类呢，哈哈哈，不要着急，这不就来了吗</p>
+<p>为了更直观一点，我又添加了一个子类来继承A类，哈哈哈</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">C</span><span class="token punctuation">(</span>A<span class="token punctuation">,</span> B<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token punctuation">,</span> age<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>name <span class="token operator">=</span> name
+        self<span class="token punctuation">.</span>age <span class="token operator">=</span> age
+ 
+<span class="token keyword">class</span> <span class="token class-name">D</span><span class="token punctuation">(</span>A<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">pass</span>
+ 
+<span class="token keyword">print</span><span class="token punctuation">(</span>A<span class="token punctuation">.</span>__subclasses__<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment">######</span>
+<span class="token punctuation">[</span><span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'__main__.C'</span><span class="token operator">></span><span class="token punctuation">,</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'__main__.D'</span><span class="token operator">></span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>看看看，输出了子类的列表了吧，哈哈哈，一点也米有不公平呀</p>
+<h1 id="特殊方法"><a href="#特殊方法" class="headerlink" title="特殊方法"></a>特殊方法</h1><p>分享完了特殊属性，终于到特殊方法啦</p>
+<h2 id="add-类的对象相加"><a href="#add-类的对象相加" class="headerlink" title="_add_()类的对象相加"></a>_<em>add</em>_()类的对象相加</h2><p>我们知道python中整数类型的对象可以相加，虽然是通过+来完成的，但是底层是调用_<em>add</em>_()方法来完成的</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">a <span class="token operator">=</span> <span class="token number">60</span>
+b <span class="token operator">=</span> <span class="token number">300</span>
+c <span class="token operator">=</span> a <span class="token operator">+</span> b
+d <span class="token operator">=</span> a<span class="token punctuation">.</span>__add__<span class="token punctuation">(</span>b<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>c<span class="token punctuation">,</span> d<span class="token punctuation">)</span>
+
+<span class="token comment">######</span>
+<span class="token number">360</span> <span class="token number">360</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p> 那我们自定义类型的对象可不可以呢，一起来看看吧</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">SWS</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>name <span class="token operator">=</span> name
+ 
+ 
+sws_1 <span class="token operator">=</span> SWS<span class="token punctuation">(</span><span class="token string">'慢蜗牛'</span><span class="token punctuation">)</span>
+sws_2 <span class="token operator">=</span> SWS<span class="token punctuation">(</span><span class="token string">'小蜗牛'</span><span class="token punctuation">)</span>
+sws_3 <span class="token operator">=</span> sws_2 <span class="token operator">+</span> sws_1
+ 
+<span class="token keyword">print</span><span class="token punctuation">(</span>sws_3<span class="token punctuation">)</span>
+
+<span class="token comment">######</span>
+Traceback <span class="token punctuation">(</span>most recent call last<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  File <span class="token string">"D:\pythonProject\main.py"</span><span class="token punctuation">,</span> line <span class="token number">8</span><span class="token punctuation">,</span> <span class="token keyword">in</span> <span class="token operator">&lt;</span>module<span class="token operator">></span>
+    sws_3 <span class="token operator">=</span> sws_2 <span class="token operator">+</span> sws_1
+TypeError<span class="token punctuation">:</span> unsupported operand <span class="token builtin">type</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token keyword">for</span> <span class="token operator">+</span><span class="token punctuation">:</span> <span class="token string">'SWS'</span> <span class="token keyword">and</span> <span class="token string">'SWS'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>哎呀，电脑报错啦，告诉我们SWS和SWS不能进行相加，那慢蜗牛的牛脾气上来了，我还非要你们想加，哼哼哼</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">SWS</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>name <span class="token operator">=</span> name
+ 
+    <span class="token keyword">def</span> <span class="token function">__add__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> other<span class="token punctuation">)</span><span class="token punctuation">:</span>  <span class="token comment"># 可以看到这里运用了__add__()方法</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>name <span class="token operator">+</span> other<span class="token punctuation">.</span>name
+ 
+ 
+sws_1 <span class="token operator">=</span> SWS<span class="token punctuation">(</span><span class="token string">'慢蜗牛'</span><span class="token punctuation">)</span>
+sws_2 <span class="token operator">=</span> SWS<span class="token punctuation">(</span><span class="token string">'小蜗牛'</span><span class="token punctuation">)</span>
+sws_3 <span class="token operator">=</span> sws_2 <span class="token operator">+</span> sws_1
+ 
+<span class="token keyword">print</span><span class="token punctuation">(</span>sws_3<span class="token punctuation">)</span>
+
+<span class="token comment">######</span>
+小蜗牛慢蜗牛<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>我们可以看到运用了_<em>add</em>_()方法，并且返回两个名字，来看看行不行</p>
+<p>哎呀，我真是太牛批啦，这都完成了，那我们来看看直接用_<em>add</em>_()来相加</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">SWS</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>name <span class="token operator">=</span> name
+ 
+    <span class="token comment"># def __add__(self, other):  # 这里是注释掉了的</span>
+    <span class="token comment">#     return self.name + other.name</span>
+ 
+ 
+sws_1 <span class="token operator">=</span> SWS<span class="token punctuation">(</span><span class="token string">'慢蜗牛'</span><span class="token punctuation">)</span>
+sws_2 <span class="token operator">=</span> SWS<span class="token punctuation">(</span><span class="token string">'小蜗牛'</span><span class="token punctuation">)</span>
+sws_3 <span class="token operator">=</span> sws_2<span class="token punctuation">.</span>__add__<span class="token punctuation">(</span>sws_1<span class="token punctuation">)</span>
+ 
+<span class="token keyword">print</span><span class="token punctuation">(</span>sws_3<span class="token punctuation">)</span>
+
+<span class="token comment">######</span>
+Traceback <span class="token punctuation">(</span>most recent call last<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  File <span class="token string">"D:\pythonProject\main.py"</span><span class="token punctuation">,</span> line <span class="token number">11</span><span class="token punctuation">,</span> <span class="token keyword">in</span> <span class="token operator">&lt;</span>module<span class="token operator">></span>
+    sws_3 <span class="token operator">=</span> sws_2<span class="token punctuation">.</span>__add__<span class="token punctuation">(</span>sws_1<span class="token punctuation">)</span>
+AttributeError<span class="token punctuation">:</span> <span class="token string">'SWS'</span> <span class="token builtin">object</span> has no attribute <span class="token string">'__add__'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>好吧好吧，现在看来，要想实现两个自定义类型对象的相加就必须用到被注释掉的部分啦</p>
+<h2 id="len-类的对象的长度"><a href="#len-类的对象的长度" class="headerlink" title="_len_()类的对象的长度"></a>_<em>len</em>_()类的对象的长度</h2><p>谈到__len__()，大家肯定就想到了对列表求长度的函数len()，那我们来看看这两者的功能</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">list_1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">22</span><span class="token punctuation">,</span> <span class="token number">44</span><span class="token punctuation">,</span> <span class="token number">66</span><span class="token punctuation">,</span> <span class="token number">88</span><span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>list_1<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>list_1<span class="token punctuation">.</span>__len__<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment">######</span>
+<span class="token number">4</span>
+<span class="token number">4</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>对于列表来说这两者功能都一致啊，那我们想要输出自定义类型对象的长度呢</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>sws_1<span class="token punctuation">)</span><span class="token punctuation">)</span>
+ 
+<span class="token comment">######</span>
+Traceback <span class="token punctuation">(</span>most recent call last<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  File <span class="token string">"D:\pythonProject\main.py"</span><span class="token punctuation">,</span> line <span class="token number">19</span><span class="token punctuation">,</span> <span class="token keyword">in</span> <span class="token operator">&lt;</span>module<span class="token operator">></span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>sws_1<span class="token punctuation">)</span><span class="token punctuation">)</span>
+TypeError<span class="token punctuation">:</span> <span class="token builtin">object</span> of <span class="token builtin">type</span> <span class="token string">'SWS'</span> has no <span class="token builtin">len</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>哎呀，又报错了，哈哈哈，牛脾气不改，接着和你刚</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">SWS</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>name <span class="token operator">=</span> name
+ 
+    <span class="token keyword">def</span> <span class="token function">__add__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> other<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>name <span class="token operator">+</span> other<span class="token punctuation">.</span>name
+ 
+    <span class="token keyword">def</span> <span class="token function">__len__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token builtin">len</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+ 
+sws_1 <span class="token operator">=</span> SWS<span class="token punctuation">(</span><span class="token string">'慢蜗牛'</span><span class="token punctuation">)</span>
+sws_2 <span class="token operator">=</span> SWS<span class="token punctuation">(</span><span class="token string">'SWS'</span><span class="token punctuation">)</span>
+ 
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>sws_1<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>sws_2<span class="token punctuation">)</span><span class="token punctuation">)</span>
+ 
+<span class="token comment">######</span>
+<span class="token number">3</span>
+<span class="token number">3</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>没有错啊，这回你不刚了吧，电脑还是没有人聪明啊</p>
+<h2 id="new-和-init"><a href="#new-和-init" class="headerlink" title="__new__()和_init_()"></a>__new__()和_<em>init</em>_()</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">SWS</span><span class="token punctuation">(</span><span class="token builtin">object</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__new__</span><span class="token punctuation">(</span>cls<span class="token punctuation">,</span> <span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'__new__被调用执行了，cls的id为&#123;&#125;'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token builtin">id</span><span class="token punctuation">(</span>cls<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        obj <span class="token operator">=</span> <span class="token builtin">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>__new__<span class="token punctuation">(</span>cls<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'创建的对象的id为&#123;&#125;'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token builtin">id</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> obj
+    
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token punctuation">,</span> age<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'__init__被调用了，self的id为&#123;&#125;'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token builtin">id</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>name <span class="token operator">=</span> name
+        self<span class="token punctuation">.</span>age <span class="token operator">=</span> age
+        
+ 
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'object这个类对象的id为&#123;&#125;'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token builtin">id</span><span class="token punctuation">(</span><span class="token builtin">object</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'SWS这个类对象的id为&#123;&#125;'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token builtin">id</span><span class="token punctuation">(</span>SWS<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+ 
+sws_1 <span class="token operator">=</span> SWS<span class="token punctuation">(</span><span class="token string">'慢蜗牛'</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'sws_1这个SWS类的实例对象的id为&#123;&#125;'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token builtin">id</span><span class="token punctuation">(</span>sws_1<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment">######</span>
+<span class="token builtin">object</span>这个类对象的<span class="token builtin">id</span>为<span class="token number">140735397846528</span>
+SWS这个类对象的<span class="token builtin">id</span>为<span class="token number">1979325068288</span>
+__new__被调用执行了，cls的<span class="token builtin">id</span>为<span class="token number">1979325068288</span>
+创建的对象的<span class="token builtin">id</span>为<span class="token number">1979331727120</span>
+__init__被调用了，self的<span class="token builtin">id</span>为<span class="token number">1979331727120</span>
+sws_1这个SWS类的实例对象的<span class="token builtin">id</span>为<span class="token number">1979331727120</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="E:\SlowSnail22.github.io\source\photo\20210521123512111.png" alt="img"></p>
+<p>我们之前总是提到创建对象的初始化用__init__()来完成，可是初始化之前，我们肯定要创建一个新对象才行呀，那我们现在就来看看这两者的关系</p>
+<p>我们先创建一个实例对象，用＝来赋值肯定是从右边开始</p>
+<p>然后看看我们cls的ID和类的ID是一样的，就可以知道第一步是把类赋给cls，然后cls就返回了一个新的对象给obj</p>
+<p>第二步就是obj把自己赋给了self来初始化对象</p>
+<p>最后返回初始化好的对象给sws_1</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>慢蜗牛
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://slowsnail22.github.io/2021/05/30/python%E4%B9%8B%E7%89%B9%E6%AE%8A%E5%B1%9E%E6%80%A7%E5%92%8C%E7%89%B9%E6%AE%8A%E6%96%B9%E6%B3%95/" title="python之特殊属性和特殊方法">https://slowsnail22.github.io/2021/05/30/python之特殊属性和特殊方法/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+              <a href="/tags/%E7%89%B9%E6%AE%8A%E5%B1%9E%E6%80%A7%EF%BC%8C%E7%89%B9%E6%AE%8A%E6%96%B9%E6%B3%95/" rel="tag"><i class="fa fa-tag"></i> 特殊属性，特殊方法</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/05/30/C%E8%AF%AD%E8%A8%80%E6%B1%82%E7%B4%A0%E6%95%B0/" rel="prev" title="C语言求素数">
+                  <i class="fa fa-chevron-left"></i> C语言求素数
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/05/30/python%E4%B9%8B%E5%B0%81%E8%A3%85%E5%8F%8A%E7%A7%81%E6%9C%89%E6%96%B9%E6%B3%95/" rel="next" title="python之封装及私有方法">
+                  python之封装及私有方法 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="SOHUCS"></div><script src="/js/comments.js"></script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fab fa-studiovinari"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">慢蜗牛</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">15k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">14 分钟</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="changyan" type="application/json">{&quot;enable&quot;:true,&quot;appid&quot;:&quot;cyvtQTBic&quot;,&quot;appkey&quot;:&quot;1322efb9f6b70166c2c66e57a16e3f6b&quot;}</script>
+<script src="/js/third-party/comments/changyan.js"></script>
+<div class="moon-menu">
+  <div class="moon-menu-items">
+    
+    <div id="moon-menu-item-back2bottom" class="moon-menu-item" onclick="back2bottom()">
+      <i class='fa fa-chevron-down'></i>    </div>
+    
+    <div id="moon-menu-item-back2top" class="moon-menu-item" onclick="back2top()">
+      <i class='fa fa-chevron-up'></i>    </div>
+    
+  </div>
+  <div class="moon-menu-button">
+    <svg class="moon-menu-bg">
+      <circle class="moon-menu-cricle" cx="50%" cy="50%" r="44%"></circle>
+      <circle class="moon-menu-border" cx="50%" cy="50%" r="48%"></circle>
+    </svg>
+    <div class="moon-menu-content">
+      <div class="moon-menu-icon"><i class='fas fa-ellipsis-v'></i></div>
+      <div class="moon-menu-text"></div>
+    </div>
+  </div>
+</div><script src="/js/injector.js"></script>
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
