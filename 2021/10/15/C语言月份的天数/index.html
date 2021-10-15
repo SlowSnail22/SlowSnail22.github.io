@@ -20,29 +20,29 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
 
 <script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;slowsnail22.github.io&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Gemini&quot;,&quot;version&quot;:&quot;8.4.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;width&quot;:240,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:true,&quot;bookmark&quot;:{&quot;enable&quot;:true,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:true,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:false}}</script>
-<meta name="description" content="C语言输入若干个正整数（输入-1为结束标志），要求按输入数据的逆序建立单链表并输出。">
+<meta name="description" content="C语言从键盘上输入年份和月份，计算并输出这一年的这一月共有多少天。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C语言逆序输出单链表">
-<meta property="og:url" content="https://slowsnail22.github.io/2021/10/14/C%E8%AF%AD%E8%A8%80%E9%80%86%E5%BA%8F%E8%BE%93%E5%87%BA%E5%8D%95%E9%93%BE%E8%A1%A8/index.html">
+<meta property="og:title" content="C语言月份的天数">
+<meta property="og:url" content="https://slowsnail22.github.io/2021/10/15/C%E8%AF%AD%E8%A8%80%E6%9C%88%E4%BB%BD%E7%9A%84%E5%A4%A9%E6%95%B0/index.html">
 <meta property="og:site_name" content="SlowSnail">
-<meta property="og:description" content="C语言输入若干个正整数（输入-1为结束标志），要求按输入数据的逆序建立单链表并输出。">
+<meta property="og:description" content="C语言从键盘上输入年份和月份，计算并输出这一年的这一月共有多少天。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-10-14T07:30:33.000Z">
-<meta property="article:modified_time" content="2021-10-15T10:10:21.150Z">
+<meta property="article:published_time" content="2021-10-15T10:12:44.000Z">
+<meta property="article:modified_time" content="2021-10-15T10:13:31.974Z">
 <meta property="article:author" content="慢蜗牛">
 <meta property="article:tag" content="C">
 <meta property="article:tag" content="课堂练习">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://slowsnail22.github.io/2021/10/14/C%E8%AF%AD%E8%A8%80%E9%80%86%E5%BA%8F%E8%BE%93%E5%87%BA%E5%8D%95%E9%93%BE%E8%A1%A8/">
+<link rel="canonical" href="https://slowsnail22.github.io/2021/10/15/C%E8%AF%AD%E8%A8%80%E6%9C%88%E4%BB%BD%E7%9A%84%E5%A4%A9%E6%95%B0/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;slowsnail22.github.io&#x2F;2021&#x2F;10&#x2F;14&#x2F;C%E8%AF%AD%E8%A8%80%E9%80%86%E5%BA%8F%E8%BE%93%E5%87%BA%E5%8D%95%E9%93%BE%E8%A1%A8&#x2F;&quot;,&quot;path&quot;:&quot;2021&#x2F;10&#x2F;14&#x2F;C语言逆序输出单链表&#x2F;&quot;,&quot;title&quot;:&quot;C语言逆序输出单链表&quot;}</script>
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;slowsnail22.github.io&#x2F;2021&#x2F;10&#x2F;15&#x2F;C%E8%AF%AD%E8%A8%80%E6%9C%88%E4%BB%BD%E7%9A%84%E5%A4%A9%E6%95%B0&#x2F;&quot;,&quot;path&quot;:&quot;2021&#x2F;10&#x2F;15&#x2F;C语言月份的天数&#x2F;&quot;,&quot;title&quot;:&quot;C语言月份的天数&quot;}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
-<title>C语言逆序输出单链表 | SlowSnail</title><script src="/js/config.js"></script><link rel="stylesheet" type="text/css" href="/css/injector/main.css" /><link rel="preload" as="style" href="/css/injector/light.css" /><link rel="preload" as="style" href="/css/injector/dark.css" />
+<title>C语言月份的天数 | SlowSnail</title><script src="/js/config.js"></script><link rel="stylesheet" type="text/css" href="/css/injector/main.css" /><link rel="preload" as="style" href="/css/injector/light.css" /><link rel="preload" as="style" href="/css/injector/dark.css" />
   
 
 
@@ -226,7 +226,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://slowsnail22.github.io/2021/10/14/C%E8%AF%AD%E8%A8%80%E9%80%86%E5%BA%8F%E8%BE%93%E5%87%BA%E5%8D%95%E9%93%BE%E8%A1%A8/">
+    <link itemprop="mainEntityOfPage" href="https://slowsnail22.github.io/2021/10/15/C%E8%AF%AD%E8%A8%80%E6%9C%88%E4%BB%BD%E7%9A%84%E5%A4%A9%E6%95%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -239,7 +239,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          C语言逆序输出单链表
+          C语言月份的天数
         </h1>
 
         <div class="post-meta-container">
@@ -249,16 +249,10 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2021-10-14 15:30:33" itemprop="dateCreated datePublished" datetime="2021-10-14T15:30:33+08:00">2021-10-14</time>
+      <time title="创建时间：2021-10-15 18:12:44 / 修改时间：18:13:31" itemprop="dateCreated datePublished" datetime="2021-10-15T18:12:44+08:00">2021-10-15</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-10-15 18:10:21" itemprop="dateModified" datetime="2021-10-15T18:10:21+08:00">2021-10-15</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -290,8 +284,8 @@
       <span class="post-meta-item-text">Changyan：</span>
     
     
-      <a title="changyan" href="/2021/10/14/C%E8%AF%AD%E8%A8%80%E9%80%86%E5%BA%8F%E8%BE%93%E5%87%BA%E5%8D%95%E9%93%BE%E8%A1%A8/#SOHUCS" itemprop="discussionUrl">
-        <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2021/10/14/C语言逆序输出单链表/" itemprop="commentCount"></span>
+      <a title="changyan" href="/2021/10/15/C%E8%AF%AD%E8%A8%80%E6%9C%88%E4%BB%BD%E7%9A%84%E5%A4%A9%E6%95%B0/#SOHUCS" itemprop="discussionUrl">
+        <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2021/10/15/C语言月份的天数/" itemprop="commentCount"></span>
       </a>
     
   </span>
@@ -304,7 +298,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>882</span>
+      <span>466</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -322,97 +316,66 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>C语言输入若干个正整数（输入-1为结束标志），要求按输入数据的逆序建立单链表并输出。</p>
+        <p>C语言从键盘上输入年份和月份，计算并输出这一年的这一月共有多少天。</p>
 <span id="more"></span>
 
-<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">/*
-开发者：慢蜗牛
-程序功能：逆序建立链表，顺序输出
-*/</span>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;stdio.h></span></span>
  
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;stdio.h></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;malloc.h></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">LEN</span> <span class="token expression"><span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">struct</span> <span class="token class-name">once</span><span class="token punctuation">)</span></span></span>
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
  
-<span class="token keyword">struct</span> <span class="token class-name">once</span><span class="token comment">//建立结构</span>
-<span class="token punctuation">&#123;</span>
-<span class="token keyword">int</span> a<span class="token punctuation">;</span>
- 
-<span class="token keyword">struct</span> <span class="token class-name">once</span><span class="token operator">*</span> next<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
- 
-<span class="token keyword">struct</span> <span class="token class-name">once</span><span class="token operator">*</span> <span class="token function">out</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment">//建立头插法逆序建立链表</span>
-<span class="token punctuation">&#123;</span>
-<span class="token keyword">int</span> n <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
- 
-<span class="token keyword">struct</span> <span class="token class-name">once</span><span class="token operator">*</span> p1<span class="token punctuation">,</span> <span class="token operator">*</span> p2<span class="token punctuation">;</span>
- 
-<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"请输入："</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
- 
-p1 <span class="token operator">=</span> p2 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">struct</span> <span class="token class-name">once</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span>LEN<span class="token punctuation">)</span><span class="token punctuation">;</span>
- 
-<span class="token function">scanf_s</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>p1<span class="token operator">-></span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
- 
-p2<span class="token operator">-></span>next <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
- 
-<span class="token keyword">while</span> <span class="token punctuation">(</span>p1<span class="token operator">-></span>a <span class="token operator">!=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
-<span class="token punctuation">&#123;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> p1<span class="token operator">-></span>next <span class="token operator">=</span> p2<span class="token operator">-></span>next<span class="token punctuation">;</span>
- 
-    <span class="token keyword">else</span> p1<span class="token operator">-></span>next <span class="token operator">=</span> p2<span class="token punctuation">;</span>
- 
-    p2 <span class="token operator">=</span> p1<span class="token punctuation">;</span>
- 
-    p1 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">struct</span> <span class="token class-name">once</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span>LEN<span class="token punctuation">)</span><span class="token punctuation">;</span>
- 
-    <span class="token function">scanf_s</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>p1<span class="token operator">-></span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
- 
-    n <span class="token operator">=</span> n <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
-<span class="token keyword">return</span><span class="token punctuation">(</span>p2<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
- 
-<span class="token keyword">void</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token keyword">struct</span> <span class="token class-name">once</span><span class="token operator">*</span> head<span class="token punctuation">)</span><span class="token comment">//输出链表</span>
 <span class="token punctuation">&#123;</span>
  
-<span class="token keyword">struct</span> <span class="token class-name">once</span><span class="token operator">*</span> p1<span class="token punctuation">,</span> <span class="token operator">*</span> p2<span class="token punctuation">,</span> <span class="token operator">*</span> p3<span class="token punctuation">,</span> <span class="token operator">*</span> p<span class="token punctuation">;</span>
+ <span class="token keyword">int</span> y<span class="token punctuation">,</span> n<span class="token punctuation">,</span> s <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token comment">//定义变量</span>
  
-p3 <span class="token operator">=</span> p1 <span class="token operator">=</span> p2 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">struct</span> <span class="token class-name">once</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span>LEN<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token function">scanf_s</span><span class="token punctuation">(</span><span class="token string">"%d-%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>y<span class="token punctuation">,</span> <span class="token operator">&amp;</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//输入年月</span>
  
-p1<span class="token operator">-></span>next <span class="token operator">=</span> head<span class="token punctuation">;</span> head <span class="token operator">=</span> p1<span class="token punctuation">;</span>
+ <span class="token keyword">switch</span> <span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token comment">//根据月份判断天数</span>
  
-p1 <span class="token operator">=</span> head<span class="token operator">-></span>next<span class="token punctuation">;</span>
+ <span class="token punctuation">&#123;</span>
  
-<span class="token keyword">do</span><span class="token comment">//反转</span>
-<span class="token punctuation">&#123;</span>
-    p3 <span class="token operator">=</span> head<span class="token operator">-></span>next<span class="token punctuation">;</span> p2 <span class="token operator">=</span> p1<span class="token operator">-></span>next<span class="token punctuation">;</span>
+ <span class="token keyword">case</span> <span class="token number">1</span><span class="token operator">:</span>s <span class="token operator">=</span> <span class="token number">31</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
  
-    head<span class="token operator">-></span>next <span class="token operator">=</span> p2<span class="token punctuation">;</span> p1<span class="token operator">-></span>next <span class="token operator">=</span> p2<span class="token operator">-></span>next<span class="token punctuation">;</span>
+ <span class="token keyword">case</span> <span class="token number">2</span><span class="token operator">:</span>s <span class="token operator">=</span> <span class="token number">28</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
  
-    p2<span class="token operator">-></span>next <span class="token operator">=</span> p3<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span> <span class="token keyword">while</span> <span class="token punctuation">(</span>p1<span class="token operator">-></span>next <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token keyword">case</span> <span class="token number">3</span><span class="token operator">:</span>s <span class="token operator">=</span> <span class="token number">31</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
  
-p <span class="token operator">=</span> head<span class="token operator">-></span>next<span class="token punctuation">;</span>
+ <span class="token keyword">case</span> <span class="token number">4</span><span class="token operator">:</span>s <span class="token operator">=</span> <span class="token number">30</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
  
-<span class="token keyword">do</span><span class="token comment">//输出头节点链表</span>
-<span class="token punctuation">&#123;</span>
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"--%d"</span><span class="token punctuation">,</span> p<span class="token operator">-></span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token keyword">case</span> <span class="token number">5</span><span class="token operator">:</span>s <span class="token operator">=</span> <span class="token number">31</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
  
-    p <span class="token operator">=</span> p<span class="token operator">-></span>next<span class="token punctuation">;</span>
+ <span class="token keyword">case</span> <span class="token number">6</span><span class="token operator">:</span>s <span class="token operator">=</span> <span class="token number">30</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
  
-<span class="token punctuation">&#125;</span> <span class="token keyword">while</span> <span class="token punctuation">(</span>p <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
+ <span class="token keyword">case</span> <span class="token number">7</span><span class="token operator">:</span>s <span class="token operator">=</span> <span class="token number">31</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
  
-<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment">//调用函数</span>
-<span class="token punctuation">&#123;</span>
+ <span class="token keyword">case</span> <span class="token number">8</span><span class="token operator">:</span>s <span class="token operator">=</span> <span class="token number">31</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
  
-<span class="token keyword">struct</span> <span class="token class-name">once</span><span class="token operator">*</span> head<span class="token punctuation">;</span>
+ <span class="token keyword">case</span> <span class="token number">9</span><span class="token operator">:</span>s <span class="token operator">=</span> <span class="token number">30</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
  
-head <span class="token operator">=</span> <span class="token function">out</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token keyword">case</span> <span class="token number">10</span><span class="token operator">:</span>s <span class="token operator">=</span> <span class="token number">31</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
  
-<span class="token function">print</span><span class="token punctuation">(</span>head<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token keyword">case</span> <span class="token number">11</span><span class="token operator">:</span>s <span class="token operator">=</span> <span class="token number">30</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
  
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+ <span class="token keyword">case</span> <span class="token number">12</span><span class="token operator">:</span>s <span class="token operator">=</span> <span class="token number">31</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+ 
+ <span class="token punctuation">&#125;</span>
+ 
+ <span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token comment">//判断闰年2月差异</span>
+ 
+ <span class="token punctuation">&#123;</span>
+ 
+ <span class="token keyword">if</span> <span class="token punctuation">(</span>y <span class="token operator">%</span> <span class="token number">4</span> <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> y <span class="token operator">%</span> <span class="token number">100</span> <span class="token operator">!=</span> <span class="token number">0</span> <span class="token operator">||</span> y <span class="token operator">%</span> <span class="token number">400</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>
+ 
+ s <span class="token operator">=</span> <span class="token number">29</span><span class="token punctuation">;</span>
+ 
+ <span class="token keyword">else</span>
+ 
+ s <span class="token operator">=</span> <span class="token number">28</span><span class="token punctuation">;</span>
+ 
+ <span class="token punctuation">&#125;</span>
+ 
+ <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span> s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ 
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
     </div>
@@ -431,7 +394,7 @@ head <span class="token operator">=</span> <span class="token function">out</spa
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://slowsnail22.github.io/2021/10/14/C%E8%AF%AD%E8%A8%80%E9%80%86%E5%BA%8F%E8%BE%93%E5%87%BA%E5%8D%95%E9%93%BE%E8%A1%A8/" title="C语言逆序输出单链表">https://slowsnail22.github.io/2021/10/14/C语言逆序输出单链表/</a>
+      <a href="https://slowsnail22.github.io/2021/10/15/C%E8%AF%AD%E8%A8%80%E6%9C%88%E4%BB%BD%E7%9A%84%E5%A4%A9%E6%95%B0/" title="C语言月份的天数">https://slowsnail22.github.io/2021/10/15/C语言月份的天数/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -448,13 +411,13 @@ head <span class="token operator">=</span> <span class="token function">out</spa
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/10/14/C%E8%AF%AD%E8%A8%80%E6%B1%82%E6%A2%AF%E5%BD%A2%E9%9D%A2%E7%A7%AF/" rel="prev" title="C语言求梯形面积">
-                  <i class="fa fa-chevron-left"></i> C语言求梯形面积
+                <a href="/2021/10/15/C%E8%AF%AD%E8%A8%80%E5%88%A4%E6%96%AD%E6%98%9F%E6%9C%9F/" rel="prev" title="C语言判断星期">
+                  <i class="fa fa-chevron-left"></i> C语言判断星期
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/10/14/C%E8%AF%AD%E8%A8%80%E9%80%86%E5%BA%8F%E6%89%93%E5%8D%B0%E4%B8%89%E4%BD%8D%E6%95%B0/" rel="next" title="C语言逆序打印三位数">
-                  C语言逆序打印三位数 <i class="fa fa-chevron-right"></i>
+                <a href="/2021/10/15/C%E8%AF%AD%E8%A8%80%E5%90%88%E5%B9%B6%E9%93%BE%E8%A1%A8/" rel="next" title="C语言合并链表">
+                  C语言合并链表 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
