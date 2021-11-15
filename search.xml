@@ -1673,4 +1673,49 @@ LB <span class="token operator">=</span> <span class="token function">creat</spa
         <tag>课堂练习</tag>
       </tags>
   </entry>
+  <entry>
+    <title>python计算字符个数</title>
+    <url>/2021/11/15/python%E8%AE%A1%E7%AE%97%E5%AD%97%E7%AC%A6%E4%B8%AA%E6%95%B0/</url>
+    <content><![CDATA[<p>Python输入一行字符，分别统计出其中大小写英文字母、空格、数字和其它字符的个数。</p>
+<span id="more"></span>
+
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> string
+ 
+ 
+<span class="token keyword">def</span> <span class="token function">SlowSnail</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    up <span class="token operator">=</span> <span class="token number">0</span>
+    low <span class="token operator">=</span> <span class="token number">0</span>
+    space <span class="token operator">=</span> <span class="token number">0</span>
+    digit <span class="token operator">=</span> <span class="token number">0</span>
+    others <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">for</span> c <span class="token keyword">in</span> s<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> c<span class="token punctuation">.</span>isupper<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            up <span class="token operator">+=</span> <span class="token number">1</span>
+        <span class="token keyword">elif</span> c<span class="token punctuation">.</span>islower<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            low <span class="token operator">+=</span> <span class="token number">1</span>
+        <span class="token keyword">elif</span> c<span class="token punctuation">.</span>isspace<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            space <span class="token operator">+=</span> <span class="token number">1</span>
+        <span class="token keyword">elif</span> c<span class="token punctuation">.</span>isdigit<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            digit <span class="token operator">+=</span> <span class="token number">1</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            others <span class="token operator">+=</span> <span class="token number">1</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'大写字母 = %d,小写字母 = %d,空格 = %d,数字 = %d,其他 = %d'</span> <span class="token operator">%</span> <span class="token punctuation">(</span>up<span class="token punctuation">,</span> low<span class="token punctuation">,</span> space<span class="token punctuation">,</span> digit<span class="token punctuation">,</span> others<span class="token punctuation">)</span><span class="token punctuation">)</span>
+ 
+ 
+<span class="token keyword">while</span> <span class="token number">1</span><span class="token punctuation">:</span>
+    s <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">'请输入一个字符串:\n'</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> <span class="token string">'-1'</span> <span class="token keyword">in</span> s<span class="token punctuation">:</span>  <span class="token comment"># 设置退出循环条件</span>
+        <span class="token keyword">break</span>
+    SlowSnail<span class="token punctuation">(</span>s<span class="token punctuation">)</span>  <span class="token comment"># 调用函数</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+]]></content>
+      <categories>
+        <category>python</category>
+        <category>入门</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>字符串</tag>
+      </tags>
+  </entry>
 </search>
