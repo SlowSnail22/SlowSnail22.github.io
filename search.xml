@@ -1718,4 +1718,211 @@ LB <span class="token operator">=</span> <span class="token function">creat</spa
         <tag>字符串</tag>
       </tags>
   </entry>
+  <entry>
+    <title>C语言二进制转换</title>
+    <url>/2021/11/18/C%E8%AF%AD%E8%A8%80%E4%BA%8C%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2/</url>
+    <content><![CDATA[<p>C语言二进制转换成八，十，十六进制</p>
+<span id="more"></span>
+
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;math.h></span></span>
+ 
+<span class="token keyword">void</span> <span class="token function">B_O</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">void</span> <span class="token function">B_H</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token function">B_D</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ 
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+	<span class="token keyword">int</span> x<span class="token punctuation">,</span>n<span class="token punctuation">;</span>
+	<span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+	<span class="token punctuation">&#123;</span>
+		<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"选择进制转换:\n1.B-O  2.B-H  3.B-D\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token function">scanf_s</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"输入二进制数:\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token function">scanf_s</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">switch</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token comment">//转换进制选择</span>
+		<span class="token punctuation">&#123;</span>
+		<span class="token keyword">case</span> <span class="token number">1</span><span class="token operator">:</span><span class="token function">B_O</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+		<span class="token keyword">case</span> <span class="token number">2</span><span class="token operator">:</span><span class="token function">B_H</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+		<span class="token keyword">case</span> <span class="token number">3</span><span class="token operator">:</span><span class="token function">B_D</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+ 
+<span class="token keyword">int</span> <span class="token function">B_D</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+	<span class="token keyword">int</span> d <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token keyword">while</span> <span class="token punctuation">(</span>n<span class="token punctuation">)</span>
+	<span class="token punctuation">&#123;</span>
+		d <span class="token operator">=</span> d <span class="token operator">+</span> n <span class="token operator">%</span> <span class="token number">10</span> <span class="token operator">*</span> <span class="token function">pow</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> x<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//去最后一位进行运算</span>
+		n <span class="token operator">=</span> n <span class="token operator">/</span> <span class="token number">10</span><span class="token punctuation">;</span><span class="token comment">//剔除运算过的最后一位</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"十进制数:%d\n"</span><span class="token punctuation">,</span> d<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> d<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+ 
+<span class="token keyword">void</span> <span class="token function">B_O</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+	<span class="token keyword">double</span> o <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	n <span class="token operator">=</span> <span class="token function">B_D</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//通过十进制数转换八进制数</span>
+	<span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token keyword">while</span> <span class="token punctuation">(</span>n<span class="token punctuation">)</span>
+	<span class="token punctuation">&#123;</span>
+		o <span class="token operator">=</span> o <span class="token operator">/</span> <span class="token number">10</span> <span class="token operator">+</span> n <span class="token operator">%</span> <span class="token number">8</span><span class="token punctuation">;</span><span class="token comment">//除以8取余数并且加上前一位的小数</span>
+		n <span class="token operator">=</span> n <span class="token operator">/</span> <span class="token number">8</span><span class="token punctuation">;</span>
+		x <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+	x<span class="token operator">--</span><span class="token punctuation">;</span>
+	o <span class="token operator">=</span> o <span class="token operator">*</span> <span class="token function">pow</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//乘以前面的运算次数来变成整数</span>
+	n <span class="token operator">=</span> o<span class="token punctuation">;</span>
+	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"八进制数:0%d"</span><span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+ 
+<span class="token keyword">void</span> <span class="token function">B_H</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+	n <span class="token operator">=</span> <span class="token function">B_D</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//通过十进制数转换十六进制数</span>
+	<span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+	<span class="token keyword">int</span> s<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token number">0</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+	<span class="token keyword">while</span> <span class="token punctuation">(</span>n<span class="token punctuation">)</span>
+	<span class="token punctuation">&#123;</span>
+		x<span class="token operator">++</span><span class="token punctuation">;</span>
+		s<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">=</span> n <span class="token operator">%</span> <span class="token number">16</span><span class="token punctuation">;</span><span class="token comment">//余数保存在数组中方便十以后的数变换成字母</span>
+		n <span class="token operator">=</span> n <span class="token operator">/</span> <span class="token number">16</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"十六进制数:0x"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	x<span class="token operator">++</span><span class="token punctuation">;</span>
+	<span class="token keyword">while</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+	<span class="token punctuation">&#123;</span>
+		<span class="token keyword">switch</span> <span class="token punctuation">(</span>s<span class="token punctuation">[</span>x<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token comment">//逆序取数组中的数，0-9不变，10-15变成对应的字母</span>
+		<span class="token punctuation">&#123;</span>
+		<span class="token keyword">case</span> <span class="token number">0</span><span class="token operator">:</span><span class="token punctuation">;</span><span class="token keyword">case</span> <span class="token number">1</span><span class="token operator">:</span><span class="token punctuation">;</span><span class="token keyword">case</span> <span class="token number">2</span><span class="token operator">:</span><span class="token punctuation">;</span><span class="token keyword">case</span> <span class="token number">3</span><span class="token operator">:</span><span class="token punctuation">;</span>
+		<span class="token keyword">case</span> <span class="token number">4</span><span class="token operator">:</span><span class="token punctuation">;</span><span class="token keyword">case</span> <span class="token number">5</span><span class="token operator">:</span><span class="token punctuation">;</span><span class="token keyword">case</span> <span class="token number">6</span><span class="token operator">:</span><span class="token punctuation">;</span><span class="token keyword">case</span> <span class="token number">7</span><span class="token operator">:</span><span class="token punctuation">;</span><span class="token keyword">case</span> <span class="token number">8</span><span class="token operator">:</span><span class="token punctuation">;</span>
+		<span class="token keyword">case</span> <span class="token number">9</span><span class="token operator">:</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> s<span class="token punctuation">[</span>x <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+		<span class="token keyword">case</span> <span class="token number">10</span><span class="token operator">:</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"A"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+		<span class="token keyword">case</span> <span class="token number">11</span><span class="token operator">:</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"B"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+		<span class="token keyword">case</span> <span class="token number">12</span><span class="token operator">:</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"C"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+		<span class="token keyword">case</span> <span class="token number">13</span><span class="token operator">:</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"D"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+		<span class="token keyword">case</span> <span class="token number">14</span><span class="token operator">:</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"E"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+		<span class="token keyword">case</span> <span class="token number">15</span><span class="token operator">:</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"F"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+		x<span class="token operator">--</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+]]></content>
+      <categories>
+        <category>C</category>
+        <category>进制转换</category>
+      </categories>
+      <tags>
+        <tag>C</tag>
+        <tag>课堂练习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C语言十进制转换</title>
+    <url>/2021/11/18/C%E8%AF%AD%E8%A8%80%E5%8D%81%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2/</url>
+    <content><![CDATA[<p>C语言十进制转二、八、十六进制</p>
+<span id="more"></span>
+
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;math.h></span></span>
+ 
+<span class="token keyword">void</span> <span class="token function">D_O</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">void</span> <span class="token function">D_H</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">void</span> <span class="token function">D_B</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ 
+ 
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+	<span class="token keyword">int</span> x<span class="token punctuation">,</span>n<span class="token punctuation">;</span>
+	<span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+	<span class="token punctuation">&#123;</span>
+		<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"选择进制转换:\n1.D-B  2.D-O  3.D-H\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token function">scanf_s</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"输入十进制数:\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token function">scanf_s</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">switch</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token comment">//转换进制选择</span>
+		<span class="token punctuation">&#123;</span>
+		<span class="token keyword">case</span> <span class="token number">1</span><span class="token operator">:</span><span class="token function">D_B</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+		<span class="token keyword">case</span> <span class="token number">2</span><span class="token operator">:</span><span class="token function">D_O</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+		<span class="token keyword">case</span> <span class="token number">3</span><span class="token operator">:</span><span class="token function">D_H</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+ 
+<span class="token keyword">void</span> <span class="token function">D_B</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+	<span class="token keyword">double</span> o <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token keyword">while</span> <span class="token punctuation">(</span>n<span class="token punctuation">)</span>
+	<span class="token punctuation">&#123;</span>
+		o <span class="token operator">=</span> o <span class="token operator">/</span> <span class="token number">10</span> <span class="token operator">+</span> n <span class="token operator">%</span> <span class="token number">2</span><span class="token punctuation">;</span><span class="token comment">//除以8取余数并且加上前一位的小数</span>
+		n <span class="token operator">=</span> n <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+		x <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+	x<span class="token operator">--</span><span class="token punctuation">;</span>
+	o <span class="token operator">=</span> o <span class="token operator">*</span> <span class="token function">pow</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//乘以前面的运算次数来变成整数</span>
+	n <span class="token operator">=</span> o<span class="token punctuation">;</span>
+	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"二进制数:%d\n"</span><span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+ 
+<span class="token keyword">void</span> <span class="token function">D_O</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+	<span class="token keyword">double</span> o <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token keyword">while</span> <span class="token punctuation">(</span>n<span class="token punctuation">)</span>
+	<span class="token punctuation">&#123;</span>
+		o <span class="token operator">=</span> o <span class="token operator">/</span> <span class="token number">10</span> <span class="token operator">+</span> n <span class="token operator">%</span> <span class="token number">8</span><span class="token punctuation">;</span><span class="token comment">//除以8取余数并且加上前一位的小数</span>
+		n <span class="token operator">=</span> n <span class="token operator">/</span> <span class="token number">8</span><span class="token punctuation">;</span>
+		x <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+	x<span class="token operator">--</span><span class="token punctuation">;</span>
+	o <span class="token operator">=</span> o <span class="token operator">*</span> <span class="token function">pow</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//乘以前面的运算次数来变成整数</span>
+	n <span class="token operator">=</span> o<span class="token punctuation">;</span>
+	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"八进制数:0%d\n"</span><span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+ 
+<span class="token keyword">void</span> <span class="token function">D_H</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+	<span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+	<span class="token keyword">int</span> s<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token number">0</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+	<span class="token keyword">while</span> <span class="token punctuation">(</span>n<span class="token punctuation">)</span>
+	<span class="token punctuation">&#123;</span>
+		x<span class="token operator">++</span><span class="token punctuation">;</span>
+		s<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">=</span> n <span class="token operator">%</span> <span class="token number">16</span><span class="token punctuation">;</span><span class="token comment">//余数保存在数组中方便十以后的数变换成字母</span>
+		n <span class="token operator">=</span> n <span class="token operator">/</span> <span class="token number">16</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"十六进制数:0x"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	x<span class="token operator">++</span><span class="token punctuation">;</span>
+	<span class="token keyword">while</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+	<span class="token punctuation">&#123;</span>
+		<span class="token keyword">switch</span> <span class="token punctuation">(</span>s<span class="token punctuation">[</span>x<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token comment">//逆序取数组中的数，0-9不变，10-15变成对应的字母</span>
+		<span class="token punctuation">&#123;</span>
+		<span class="token keyword">case</span> <span class="token number">0</span><span class="token operator">:</span><span class="token punctuation">;</span><span class="token keyword">case</span> <span class="token number">1</span><span class="token operator">:</span><span class="token punctuation">;</span><span class="token keyword">case</span> <span class="token number">2</span><span class="token operator">:</span><span class="token punctuation">;</span><span class="token keyword">case</span> <span class="token number">3</span><span class="token operator">:</span><span class="token punctuation">;</span>
+		<span class="token keyword">case</span> <span class="token number">4</span><span class="token operator">:</span><span class="token punctuation">;</span><span class="token keyword">case</span> <span class="token number">5</span><span class="token operator">:</span><span class="token punctuation">;</span><span class="token keyword">case</span> <span class="token number">6</span><span class="token operator">:</span><span class="token punctuation">;</span><span class="token keyword">case</span> <span class="token number">7</span><span class="token operator">:</span><span class="token punctuation">;</span><span class="token keyword">case</span> <span class="token number">8</span><span class="token operator">:</span><span class="token punctuation">;</span>
+		<span class="token keyword">case</span> <span class="token number">9</span><span class="token operator">:</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> s<span class="token punctuation">[</span>x <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+		<span class="token keyword">case</span> <span class="token number">10</span><span class="token operator">:</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"A"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+		<span class="token keyword">case</span> <span class="token number">11</span><span class="token operator">:</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"B"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+		<span class="token keyword">case</span> <span class="token number">12</span><span class="token operator">:</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"C"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+		<span class="token keyword">case</span> <span class="token number">13</span><span class="token operator">:</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"D"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+		<span class="token keyword">case</span> <span class="token number">14</span><span class="token operator">:</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"E"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+		<span class="token keyword">case</span> <span class="token number">15</span><span class="token operator">:</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"F"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+		x<span class="token operator">--</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+]]></content>
+      <categories>
+        <category>C</category>
+        <category>进制转换</category>
+      </categories>
+      <tags>
+        <tag>C</tag>
+        <tag>课堂练习</tag>
+      </tags>
+  </entry>
 </search>
