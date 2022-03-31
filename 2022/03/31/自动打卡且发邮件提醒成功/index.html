@@ -20,25 +20,32 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
 
 <script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;slowsnail22.github.io&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Gemini&quot;,&quot;version&quot;:&quot;8.4.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;width&quot;:240,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:true,&quot;bookmark&quot;:{&quot;enable&quot;:true,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:true,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:false}}</script>
-<meta name="description" content="share!!!free!!!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="SlowSnail">
-<meta property="og:url" content="https://slowsnail22.github.io/archives/2021/page/2/index.html">
+<meta name="description" content="演示视频：python自动打卡 这篇文章是基于电脑已经安装好pycharm、python和Chromium基础上进行指导的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自动打卡且发邮件提醒成功">
+<meta property="og:url" content="https://slowsnail22.github.io/2022/03/31/%E8%87%AA%E5%8A%A8%E6%89%93%E5%8D%A1%E4%B8%94%E5%8F%91%E9%82%AE%E4%BB%B6%E6%8F%90%E9%86%92%E6%88%90%E5%8A%9F/index.html">
 <meta property="og:site_name" content="SlowSnail">
-<meta property="og:description" content="share!!!free!!!">
+<meta property="og:description" content="演示视频：python自动打卡 这篇文章是基于电脑已经安装好pycharm、python和Chromium基础上进行指导的">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/4a66e99c566f418ea200aed681572d4b.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAU2xvdy1TbmFpbA==,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==">
+<meta property="article:published_time" content="2022-03-31T02:17:33.000Z">
+<meta property="article:modified_time" content="2022-03-31T02:27:23.942Z">
 <meta property="article:author" content="慢蜗牛">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="selenium">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/4a66e99c566f418ea200aed681572d4b.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAU2xvdy1TbmFpbA==,size_20,color_FFFFFF,t_70,g_se,x_16">
 
 
-<link rel="canonical" href="https://slowsnail22.github.io/archives/2021/page/2/">
+<link rel="canonical" href="https://slowsnail22.github.io/2022/03/31/%E8%87%AA%E5%8A%A8%E6%89%93%E5%8D%A1%E4%B8%94%E5%8F%91%E9%82%AE%E4%BB%B6%E6%8F%90%E9%86%92%E6%88%90%E5%8A%9F/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:false,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:&quot;&quot;,&quot;permalink&quot;:&quot;&quot;,&quot;path&quot;:&quot;archives&#x2F;2021&#x2F;page&#x2F;2&#x2F;index.html&quot;,&quot;title&quot;:&quot;&quot;}</script>
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;slowsnail22.github.io&#x2F;2022&#x2F;03&#x2F;31&#x2F;%E8%87%AA%E5%8A%A8%E6%89%93%E5%8D%A1%E4%B8%94%E5%8F%91%E9%82%AE%E4%BB%B6%E6%8F%90%E9%86%92%E6%88%90%E5%8A%9F&#x2F;&quot;,&quot;path&quot;:&quot;2022&#x2F;03&#x2F;31&#x2F;自动打卡且发邮件提醒成功&#x2F;&quot;,&quot;title&quot;:&quot;自动打卡且发邮件提醒成功&quot;}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
-<title>归档 | SlowSnail</title><script src="/js/config.js"></script><link rel="stylesheet" type="text/css" href="/css/injector/main.css" /><link rel="preload" as="style" href="/css/injector/light.css" /><link rel="preload" as="style" href="/css/injector/dark.css" />
+<title>自动打卡且发邮件提醒成功 | SlowSnail</title><script src="/js/config.js"></script><link rel="stylesheet" type="text/css" href="/css/injector/main.css" /><link rel="preload" as="style" href="/css/injector/light.css" /><link rel="preload" as="style" href="/css/injector/dark.css" />
   
 
 
@@ -133,7 +140,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -146,6 +153,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-number">1.</span> <span class="nav-text">准备工作</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -211,233 +219,172 @@
 </noscript>
 
 
-    <div class="main-inner archive posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
-  
-  
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 25 篇日志。 继续努力。</span>
-      </div>
 
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://slowsnail22.github.io/2022/03/31/%E8%87%AA%E5%8A%A8%E6%89%93%E5%8D%A1%E4%B8%94%E5%8F%91%E9%82%AE%E4%BB%B6%E6%8F%90%E9%86%92%E6%88%90%E5%8A%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="慢蜗牛">
+      <meta itemprop="description" content="share!!!free!!!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SlowSnail">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          自动打卡且发邮件提醒成功
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
+
+      <time title="创建时间：2022-03-31 10:17:33 / 修改时间：10:27:23" itemprop="dateCreated datePublished" datetime="2022-03-31T10:17:33+08:00">2022-03-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/python/%E5%85%A5%E9%97%A8/" itemprop="url" rel="index"><span itemprop="name">入门</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan：</span>
+    
+    
+      <a title="changyan" href="/2022/03/31/%E8%87%AA%E5%8A%A8%E6%89%93%E5%8D%A1%E4%B8%94%E5%8F%91%E9%82%AE%E4%BB%B6%E6%8F%90%E9%86%92%E6%88%90%E5%8A%9F/#SOHUCS" itemprop="discussionUrl">
+        <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2022/03/31/自动打卡且发邮件提醒成功/" itemprop="commentCount"></span>
+      </a>
+    
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>287</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>演示视频：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1VS4y1m7C4#reply107380856064">python自动打卡</a></p>
+<p>这篇文章是基于电脑已经安装好pycharm、python和Chromium基础上进行指导的</p>
+<span id="more"></span>
+
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ul>
+<li><p>每个人的Google版本不一定相同，在浏览器地址栏输入chrome://version查看自己的版本，必须保证前三个数字（86.0.4240）相同</p>
+</li>
+<li><p>下载浏览器的对应版本驱动：<a target="_blank" rel="noopener" href="https://chromedriver.chromium.org/downloads">https://chromedriver.chromium.org/downloads</a></p>
+</li>
+<li><p>安装chromedriver_win32.zip并解压，将其中的chromedriver.exe文件放在Chrome和python的安装目录下（注意是python！！！不是pycharm）</p>
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/4a66e99c566f418ea200aed681572d4b.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAU2xvdy1TbmFpbA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动"></p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-10-14T15:36:53+08:00"
-              content="2021-10-14">
-          10-14
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/10/14/C%E8%AF%AD%E8%A8%80%E7%9F%A9%E5%BD%A2%E9%9D%A2%E7%A7%AF/" itemprop="url">
-            <span itemprop="name">C语言矩形面积</span>
-          </a>
-      </div>
+    <footer class="post-footer">
+          
 
-      
-    </header>
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>慢蜗牛
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://slowsnail22.github.io/2022/03/31/%E8%87%AA%E5%8A%A8%E6%89%93%E5%8D%A1%E4%B8%94%E5%8F%91%E9%82%AE%E4%BB%B6%E6%8F%90%E9%86%92%E6%88%90%E5%8A%9F/" title="自动打卡且发邮件提醒成功">https://slowsnail22.github.io/2022/03/31/自动打卡且发邮件提醒成功/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+              <a href="/tags/selenium/" rel="tag"><i class="fa fa-tag"></i> selenium</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/11/18/C%E8%AF%AD%E8%A8%80%E5%8D%81%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2/" rel="prev" title="C语言十进制转换">
+                  <i class="fa fa-chevron-left"></i> C语言十进制转换
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
   </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-10-14T15:34:04+08:00"
-              content="2021-10-14">
-          10-14
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/10/14/C%E8%AF%AD%E8%A8%80%E9%80%86%E5%BA%8F%E6%89%93%E5%8D%B0%E4%B8%89%E4%BD%8D%E6%95%B0/" itemprop="url">
-            <span itemprop="name">C语言逆序打印三位数</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-10-14T15:30:33+08:00"
-              content="2021-10-14">
-          10-14
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/10/14/C%E8%AF%AD%E8%A8%80%E9%80%86%E5%BA%8F%E8%BE%93%E5%87%BA%E5%8D%95%E9%93%BE%E8%A1%A8/" itemprop="url">
-            <span itemprop="name">C语言逆序输出单链表</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-10-14T15:12:08+08:00"
-              content="2021-10-14">
-          10-14
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/10/14/C%E8%AF%AD%E8%A8%80%E6%B1%82%E6%A2%AF%E5%BD%A2%E9%9D%A2%E7%A7%AF/" itemprop="url">
-            <span itemprop="name">C语言求梯形面积</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-05-30T17:05:22+08:00"
-              content="2021-05-30">
-          05-30
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/05/30/python%E4%B9%8B%E5%A4%9A%E6%80%81/" itemprop="url">
-            <span itemprop="name">python之多态</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-05-30T16:54:28+08:00"
-              content="2021-05-30">
-          05-30
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/05/30/python%E4%B9%8B%E7%BB%A7%E6%89%BF%E5%8F%8A%E5%85%B6%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/" itemprop="url">
-            <span itemprop="name">python之继承及其实现方法</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-05-30T16:46:32+08:00"
-              content="2021-05-30">
-          05-30
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/05/30/python%E4%B9%8B%E5%B0%81%E8%A3%85%E5%8F%8A%E7%A7%81%E6%9C%89%E6%96%B9%E6%B3%95/" itemprop="url">
-            <span itemprop="name">python之封装及私有方法</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-05-30T16:34:04+08:00"
-              content="2021-05-30">
-          05-30
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/05/30/python%E4%B9%8B%E7%89%B9%E6%AE%8A%E5%B1%9E%E6%80%A7%E5%92%8C%E7%89%B9%E6%AE%8A%E6%96%B9%E6%B3%95/" itemprop="url">
-            <span itemprop="name">python之特殊属性和特殊方法</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-05-30T16:31:08+08:00"
-              content="2021-05-30">
-          05-30
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/05/30/C%E8%AF%AD%E8%A8%80%E6%B1%82%E7%B4%A0%E6%95%B0/" itemprop="url">
-            <span itemprop="name">C语言求素数</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-05-30T16:26:01+08:00"
-              content="2021-05-30">
-          05-30
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/05/30/C%E8%AF%AD%E8%A8%80%E6%B1%82%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0%E5%92%8C%E6%9C%80%E5%B0%8F%E5%85%AC%E5%80%8D%E6%95%B0/" itemprop="url">
-            <span itemprop="name">C语言求最大公约数和最小公倍数</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
+</div>
 
 
-    </div>
-  </div>
-  
-  
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/2021/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/archives/2021/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/2021/page/3/">3</a><a class="extend next" rel="next" href="/archives/2021/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
-<script src="/js/comments.js"></script>
+
+
+
+
+    <div class="comments" id="SOHUCS"></div><script src="/js/comments.js"></script>
 </div>
   </main>
 

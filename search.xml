@@ -1925,4 +1925,31 @@ LB <span class="token operator">=</span> <span class="token function">creat</spa
         <tag>课堂练习</tag>
       </tags>
   </entry>
+  <entry>
+    <title>自动打卡且发邮件提醒成功</title>
+    <url>/2022/03/31/%E8%87%AA%E5%8A%A8%E6%89%93%E5%8D%A1%E4%B8%94%E5%8F%91%E9%82%AE%E4%BB%B6%E6%8F%90%E9%86%92%E6%88%90%E5%8A%9F/</url>
+    <content><![CDATA[<p>演示视频：<a href="https://www.bilibili.com/video/BV1VS4y1m7C4#reply107380856064">python自动打卡</a></p>
+<p>这篇文章是基于电脑已经安装好pycharm、python和Chromium基础上进行指导的</p>
+<span id="more"></span>
+
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ul>
+<li><p>每个人的Google版本不一定相同，在浏览器地址栏输入chrome://version查看自己的版本，必须保证前三个数字（86.0.4240）相同</p>
+</li>
+<li><p>下载浏览器的对应版本驱动：<a href="https://chromedriver.chromium.org/downloads">https://chromedriver.chromium.org/downloads</a></p>
+</li>
+<li><p>安装chromedriver_win32.zip并解压，将其中的chromedriver.exe文件放在Chrome和python的安装目录下（注意是python！！！不是pycharm）</p>
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/4a66e99c566f418ea200aed681572d4b.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAU2xvdy1TbmFpbA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动"></p>
+]]></content>
+      <categories>
+        <category>python</category>
+        <category>入门</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>selenium</tag>
+      </tags>
+  </entry>
 </search>
