@@ -1956,6 +1956,10 @@ LB <span class="token operator">=</span> <span class="token function">creat</spa
 <p>driver.find_element_by_id（），driver.find_element_by_class_name（），driver.find_element_by_xpath（）等函数（）里面的内容需要自己选中对应的元素，然后按鼠标右键进行检查，复制对应的id或者class即可，xpath则需要对检查后的部分右击-Copy-Copy full XPath，如下图</p>
 <p><img src="https://img-blog.csdnimg.cn/34eee302b6e34b5790b9453f4ce043d7.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAU2xvdy1TbmFpbA==,size_17,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
 <p><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动"></p>
+<p><img src="https://img-blog.csdnimg.cn/61ee23731ef3461689ff2ecf57bcc620.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAU2xvdy1TbmFpbA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动"></p>
+<p><img src="https://img-blog.csdnimg.cn/33cf077d91934fd18f9156e5a26e77ca.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAU2xvdy1TbmFpbA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动"></p>
 <ul>
 <li>引用包</li>
 </ul>
