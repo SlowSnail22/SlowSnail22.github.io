@@ -1942,6 +1942,231 @@ LB <span class="token operator">=</span> <span class="token function">creat</spa
 </ul>
 <p><img src="https://img-blog.csdnimg.cn/4a66e99c566f418ea200aed681572d4b.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAU2xvdy1TbmFpbA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
 <p><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动"></p>
+<p><img src="https://img-blog.csdnimg.cn/d256e81d61d541e18d8f0fbddd2ff62f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAU2xvdy1TbmFpbA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动"></p>
+<ul>
+<li>配置环境变量，把Chrome的安装路径加进来 </li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/6cd53514b837491685ac4136ff05a957.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAU2xvdy1TbmFpbA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动"></p>
+<p><img src="https://img-blog.csdnimg.cn/3c12df28caec44a08598c9738cc181cf.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAU2xvdy1TbmFpbA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动"></p>
+<h2 id="打开pycharm新建项目，开始写代码"><a href="#打开pycharm新建项目，开始写代码" class="headerlink" title="打开pycharm新建项目，开始写代码"></a>打开pycharm新建项目，开始写代码</h2><ul>
+<li>写代码前需要知道的F12知识</li>
+</ul>
+<p>driver.find_element_by_id（），driver.find_element_by_class_name（），driver.find_element_by_xpath（）等函数（）里面的内容需要自己选中对应的元素，然后按鼠标右键进行检查，复制对应的id或者class即可，xpath则需要对检查后的部分右击-Copy-Copy full XPath，如下图</p>
+<p><img src="https://img-blog.csdnimg.cn/34eee302b6e34b5790b9453f4ce043d7.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAU2xvdy1TbmFpbA==,size_17,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动"></p>
+<ul>
+<li>引用包</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> selenium <span class="token keyword">import</span> webdriver
+<span class="token keyword">import</span> random
+<span class="token keyword">from</span> time <span class="token keyword">import</span> sleep<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>打开浏览器并且登入账户，代码中的浏览器位置和驱动位置需要自己更改</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 选择Chrome浏览器</span>
+options <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>ChromeOptions<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment"># 浏览器的位置，需要自己更改</span>
+options<span class="token punctuation">.</span>binary_location <span class="token operator">=</span> <span class="token string">"C:\\Users\\****\\AppData\\Local\\Chromium\\Application\\Chromium.exe"</span>
+<span class="token comment"># 浏览器驱动的位置，需要自己更改</span>
+driver <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>Chrome<span class="token punctuation">(</span><span class="token string">"C:\\Users\\****\\AppData\\Local\\Chromium\\Application\\chromedriver.exe"</span><span class="token punctuation">,</span> options<span class="token operator">=</span>options<span class="token punctuation">)</span>
+<span class="token comment"># 学校的打卡网页，需要自己更改</span>
+driver<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"https://hsm.sspu.edu.cn"</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Successfully entered the web page"</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 这两步把操作界面切换到新打开的浏览器页面</span>
+now_handle <span class="token operator">=</span> driver<span class="token punctuation">.</span>current_window_handle
+driver<span class="token punctuation">.</span>switch_to<span class="token punctuation">.</span>window<span class="token punctuation">(</span>now_handle<span class="token punctuation">)</span>
+
+<span class="token comment"># 清除输入框内容、输入账号密码，需要自己更改</span>
+driver<span class="token punctuation">.</span>find_element_by_id<span class="token punctuation">(</span><span class="token string">"username"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span><span class="token string">"**************"</span><span class="token punctuation">)</span>  <span class="token comment"># 账号</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Successfully entered the username"</span><span class="token punctuation">)</span>
+driver<span class="token punctuation">.</span>find_element_by_id<span class="token punctuation">(</span><span class="token string">"password"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span><span class="token string">"**************"</span><span class="token punctuation">)</span>  <span class="token comment"># 密码</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Successfully entered the password"</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 登录</span>
+driver<span class="token punctuation">.</span>find_element_by_class_name<span class="token punctuation">(</span><span class="token string">"submit_button"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Successfully log in to your account"</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 当前打开的所有窗口</span>
+windows <span class="token operator">=</span> driver<span class="token punctuation">.</span>window_handles
+<span class="token comment"># 将操作转换到最新打开的窗口</span>
+driver<span class="token punctuation">.</span>switch_to<span class="token punctuation">.</span>window<span class="token punctuation">(</span>windows<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>找到填报图标并且点击 </li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 通过绝对路径方式找到并点击健康信息填报图标</span>
+driver<span class="token punctuation">.</span>find_element_by_xpath<span class="token punctuation">(</span><span class="token string">"/html/body/form/div[6]/ul/li[1]/a/div"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Successfully entered the Daily Newspaper"</span><span class="token punctuation">)</span>
+<span class="token comment"># 延时加载</span>
+sleep<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 当前打开的所有窗口</span>
+windows <span class="token operator">=</span> driver<span class="token punctuation">.</span>window_handles
+<span class="token comment"># 转换到最新打开的窗口</span>
+driver<span class="token punctuation">.</span>switch_to<span class="token punctuation">.</span>window<span class="token punctuation">(</span>windows<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>随机体温，提交然后关闭网页</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 找到今天体温的文本框，清空文本框并send_keys()输入(36.0,37.0)之间的随机数</span>
+driver<span class="token punctuation">.</span>find_element_by_id<span class="token punctuation">(</span><span class="token string">"p1_TiWen-inputEl"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>clear<span class="token punctuation">(</span><span class="token punctuation">)</span>
+driver<span class="token punctuation">.</span>find_element_by_id<span class="token punctuation">(</span><span class="token string">"p1_TiWen-inputEl"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span><span class="token string">'%.1f'</span> <span class="token operator">%</span> random<span class="token punctuation">.</span>uniform<span class="token punctuation">(</span><span class="token number">36.0</span><span class="token punctuation">,</span> <span class="token number">37.0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Successful random body temperature"</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 找到并点击提交按钮</span>
+driver<span class="token punctuation">.</span>find_element_by_class_name<span class="token punctuation">(</span><span class="token string">"f-btn-inner"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Successful submission"</span><span class="token punctuation">)</span>
+sleep<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 关闭网页</span>
+driver<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"done"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>二工大校友可直接修改代码中的浏览器位置、驱动位置以及账号密码之后立即使用。</p>
+<h2 id="发送邮件提醒成功打卡"><a href="#发送邮件提醒成功打卡" class="headerlink" title="发送邮件提醒成功打卡"></a>发送邮件提醒成功打卡</h2><p>此处用的是QQ邮箱，需要提前登录球QQ邮箱网页版点击设置-账户，滑到最下面开启SMTP，并且生成授权码。</p>
+<p><img src="https://img-blog.csdnimg.cn/f96d88daf86c4c8ab59681f5b328d32f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAU2xvdy1TbmFpbA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动"></p>
+<ul>
+<li>代码</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 发送邮件</span>
+<span class="token comment"># 设置服务器所需信息</span>
+<span class="token comment"># QQ邮箱服务器地址</span>
+mail_host <span class="token operator">=</span> <span class="token string">'smtp.qq.com'</span>
+<span class="token comment"># QQ用户名</span>
+mail_user <span class="token operator">=</span> <span class="token string">'QQ账号'</span>
+<span class="token comment"># 密码(部分邮箱为授权码)</span>
+mail_pass <span class="token operator">=</span> <span class="token string">'授权码'</span>
+<span class="token comment"># 邮件发送方邮箱地址</span>
+sender <span class="token operator">=</span> <span class="token string">'QQ账号@qq.com'</span>
+<span class="token comment"># 邮件接受方邮箱地址，注意需要[]包裹，这意味着你可以写多个邮件地址群发</span>
+receivers <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'QQ账号@qq.com'</span><span class="token punctuation">]</span>
+
+<span class="token comment"># 设置email信息</span>
+<span class="token comment"># 邮件内容设置</span>
+message <span class="token operator">=</span> MIMEText<span class="token punctuation">(</span><span class="token string">'每日一报自动打卡成功'</span><span class="token punctuation">,</span> <span class="token string">'plain'</span><span class="token punctuation">,</span> <span class="token string">'utf-8'</span><span class="token punctuation">)</span>
+<span class="token comment"># 邮件主题</span>
+message<span class="token punctuation">[</span><span class="token string">'Subject'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'每日一报'</span>
+<span class="token comment"># 发送方信息</span>
+message<span class="token punctuation">[</span><span class="token string">'From'</span><span class="token punctuation">]</span> <span class="token operator">=</span> sender
+<span class="token comment"># 接受方信息</span>
+message<span class="token punctuation">[</span><span class="token string">'To'</span><span class="token punctuation">]</span> <span class="token operator">=</span> receivers<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+
+<span class="token comment"># 登录并发送邮件</span>
+smtpObj <span class="token operator">=</span> smtplib<span class="token punctuation">.</span>SMTP<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment"># 连接到服务器</span>
+smtpObj<span class="token punctuation">.</span>connect<span class="token punctuation">(</span>mail_host<span class="token punctuation">,</span> <span class="token number">25</span><span class="token punctuation">)</span>
+<span class="token comment"># 登录到服务器</span>
+smtpObj<span class="token punctuation">.</span>login<span class="token punctuation">(</span>mail_user<span class="token punctuation">,</span> mail_pass<span class="token punctuation">)</span>
+<span class="token comment"># 发送</span>
+smtpObj<span class="token punctuation">.</span>sendmail<span class="token punctuation">(</span>
+    sender<span class="token punctuation">,</span> receivers<span class="token punctuation">,</span> message<span class="token punctuation">.</span>as_string<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment"># 退出</span>
+smtpObj<span class="token punctuation">.</span>quit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'success'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> selenium <span class="token keyword">import</span> webdriver
+<span class="token keyword">import</span> random
+<span class="token keyword">from</span> time <span class="token keyword">import</span> sleep
+
+<span class="token comment"># 成功之后发送邮件</span>
+<span class="token keyword">import</span> smtplib
+<span class="token keyword">from</span> email<span class="token punctuation">.</span>mime<span class="token punctuation">.</span>text <span class="token keyword">import</span> MIMEText
+
+<span class="token comment"># 选择Chrome浏览器</span>
+options <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>ChromeOptions<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment"># 浏览器的位置，需要自己更改</span>
+options<span class="token punctuation">.</span>binary_location <span class="token operator">=</span> <span class="token string">"C:\\Users\\***\\AppData\\Local\\Chromium\\Application\\Chromium.exe"</span>
+<span class="token comment"># 浏览器驱动的位置，需要自己更改</span>
+driver <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>Chrome<span class="token punctuation">(</span><span class="token string">"C:\\Users\\***\\AppData\\Local\\Chromium\\Application\\chromedriver.exe"</span><span class="token punctuation">,</span> options<span class="token operator">=</span>options<span class="token punctuation">)</span>
+<span class="token comment"># 学校的打卡网页，需要自己更改</span>
+driver<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"https://hsm.sspu.edu.cn"</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Successfully entered the web page"</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 这两步把操作界面切换到新打开的浏览器页面</span>
+now_handle <span class="token operator">=</span> driver<span class="token punctuation">.</span>current_window_handle
+driver<span class="token punctuation">.</span>switch_to<span class="token punctuation">.</span>window<span class="token punctuation">(</span>now_handle<span class="token punctuation">)</span>
+
+<span class="token comment"># 清除输入框内容、输入账号密码，需要自己更改</span>
+driver<span class="token punctuation">.</span>find_element_by_id<span class="token punctuation">(</span><span class="token string">"username"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span><span class="token string">"账号"</span><span class="token punctuation">)</span>  <span class="token comment"># 账号</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Successfully entered the username"</span><span class="token punctuation">)</span>
+driver<span class="token punctuation">.</span>find_element_by_id<span class="token punctuation">(</span><span class="token string">"password"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span><span class="token string">"密码"</span><span class="token punctuation">)</span>  <span class="token comment"># 密码</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Successfully entered the password"</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 登录</span>
+driver<span class="token punctuation">.</span>find_element_by_class_name<span class="token punctuation">(</span><span class="token string">"submit_button"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Successfully log in to your account"</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 当前打开的所有窗口</span>
+windows <span class="token operator">=</span> driver<span class="token punctuation">.</span>window_handles
+<span class="token comment"># 将操作转换到最新打开的窗口</span>
+driver<span class="token punctuation">.</span>switch_to<span class="token punctuation">.</span>window<span class="token punctuation">(</span>windows<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 通过绝对路径方式找到并点击健康信息填报图标</span>
+driver<span class="token punctuation">.</span>find_element_by_xpath<span class="token punctuation">(</span><span class="token string">"/html/body/form/div[6]/ul/li[1]/a/div"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Successfully entered the Daily Newspaper"</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 延时加载</span>
+sleep<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 当前打开的所有窗口</span>
+windows <span class="token operator">=</span> driver<span class="token punctuation">.</span>window_handles
+<span class="token comment"># 转换到最新打开的窗口</span>
+driver<span class="token punctuation">.</span>switch_to<span class="token punctuation">.</span>window<span class="token punctuation">(</span>windows<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 找到今天体温的文本框，清空文本框并send_keys()输入(36.0,37.0)之间的随机数</span>
+driver<span class="token punctuation">.</span>find_element_by_id<span class="token punctuation">(</span><span class="token string">"p1_TiWen-inputEl"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>clear<span class="token punctuation">(</span><span class="token punctuation">)</span>
+driver<span class="token punctuation">.</span>find_element_by_id<span class="token punctuation">(</span><span class="token string">"p1_TiWen-inputEl"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span><span class="token string">'%.1f'</span> <span class="token operator">%</span> random<span class="token punctuation">.</span>uniform<span class="token punctuation">(</span><span class="token number">36.0</span><span class="token punctuation">,</span> <span class="token number">37.0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Successful random body temperature"</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 找到并点击提交按钮</span>
+driver<span class="token punctuation">.</span>find_element_by_class_name<span class="token punctuation">(</span><span class="token string">"f-btn-inner"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Successful submission"</span><span class="token punctuation">)</span>
+sleep<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 关闭网页</span>
+driver<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"done"</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 发送邮件</span>
+<span class="token comment"># 设置服务器所需信息</span>
+<span class="token comment"># QQ邮箱服务器地址</span>
+mail_host <span class="token operator">=</span> <span class="token string">'smtp.qq.com'</span>
+<span class="token comment"># QQ用户名</span>
+mail_user <span class="token operator">=</span> <span class="token string">'QQ账号'</span>
+<span class="token comment"># 密码(部分邮箱为授权码)</span>
+mail_pass <span class="token operator">=</span> <span class="token string">'授权码'</span>
+<span class="token comment"># 邮件发送方邮箱地址</span>
+sender <span class="token operator">=</span> <span class="token string">'QQ账号@qq.com'</span>
+<span class="token comment"># 邮件接受方邮箱地址，注意需要[]包裹，这意味着你可以写多个邮件地址群发</span>
+receivers <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'QQ账号@qq.com'</span><span class="token punctuation">]</span>
+
+<span class="token comment"># 设置email信息</span>
+<span class="token comment"># 邮件内容设置</span>
+message <span class="token operator">=</span> MIMEText<span class="token punctuation">(</span><span class="token string">'每日一报自动打卡成功'</span><span class="token punctuation">,</span> <span class="token string">'plain'</span><span class="token punctuation">,</span> <span class="token string">'utf-8'</span><span class="token punctuation">)</span>
+<span class="token comment"># 邮件主题</span>
+message<span class="token punctuation">[</span><span class="token string">'Subject'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'每日一报'</span>
+<span class="token comment"># 发送方信息</span>
+message<span class="token punctuation">[</span><span class="token string">'From'</span><span class="token punctuation">]</span> <span class="token operator">=</span> sender
+<span class="token comment"># 接受方信息</span>
+message<span class="token punctuation">[</span><span class="token string">'To'</span><span class="token punctuation">]</span> <span class="token operator">=</span> receivers<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+
+<span class="token comment"># 登录并发送邮件</span>
+smtpObj <span class="token operator">=</span> smtplib<span class="token punctuation">.</span>SMTP<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment"># 连接到服务器</span>
+smtpObj<span class="token punctuation">.</span>connect<span class="token punctuation">(</span>mail_host<span class="token punctuation">,</span> <span class="token number">25</span><span class="token punctuation">)</span>
+<span class="token comment"># 登录到服务器</span>
+smtpObj<span class="token punctuation">.</span>login<span class="token punctuation">(</span>mail_user<span class="token punctuation">,</span> mail_pass<span class="token punctuation">)</span>
+<span class="token comment"># 发送</span>
+smtpObj<span class="token punctuation">.</span>sendmail<span class="token punctuation">(</span>
+    sender<span class="token punctuation">,</span> receivers<span class="token punctuation">,</span> message<span class="token punctuation">.</span>as_string<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment"># 退出</span>
+smtpObj<span class="token punctuation">.</span>quit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'success'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 ]]></content>
       <categories>
         <category>python</category>
