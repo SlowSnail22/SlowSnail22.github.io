@@ -160,18 +160,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">32</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -212,6 +212,891 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://slowsnail22.github.io/2021/10/14/C%E8%AF%AD%E8%A8%80%E9%80%86%E5%BA%8F%E8%BE%93%E5%87%BA%E5%8D%95%E9%93%BE%E8%A1%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="慢蜗牛">
+      <meta itemprop="description" content="share!!!free!!!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SlowSnail">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/10/14/C%E8%AF%AD%E8%A8%80%E9%80%86%E5%BA%8F%E8%BE%93%E5%87%BA%E5%8D%95%E9%93%BE%E8%A1%A8/" class="post-title-link" itemprop="url">C语言逆序输出单链表</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-10-14 15:30:33" itemprop="dateCreated datePublished" datetime="2021-10-14T15:30:33+08:00">2021-10-14</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-10-15 18:10:21" itemprop="dateModified" datetime="2021-10-15T18:10:21+08:00">2021-10-15</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/C/%E4%BD%9C%E4%B8%9A/" itemprop="url" rel="index"><span itemprop="name">作业</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan：</span>
+    
+    
+      <a title="changyan" href="/2021/10/14/C%E8%AF%AD%E8%A8%80%E9%80%86%E5%BA%8F%E8%BE%93%E5%87%BA%E5%8D%95%E9%93%BE%E8%A1%A8/#SOHUCS" itemprop="discussionUrl">
+        <span id="url::https://slowsnail22.github.io/2021/10/14/C%E8%AF%AD%E8%A8%80%E9%80%86%E5%BA%8F%E8%BE%93%E5%87%BA%E5%8D%95%E9%93%BE%E8%A1%A8/" class="cy_cmt_count" data-xid="2021/10/14/C语言逆序输出单链表/" itemprop="commentCount"></span>
+      </a>
+    
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>882</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>C语言输入若干个正整数（输入-1为结束标志），要求按输入数据的逆序建立单链表并输出。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/10/14/C%E8%AF%AD%E8%A8%80%E9%80%86%E5%BA%8F%E8%BE%93%E5%87%BA%E5%8D%95%E9%93%BE%E8%A1%A8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://slowsnail22.github.io/2021/10/14/C%E8%AF%AD%E8%A8%80%E6%B1%82%E6%A2%AF%E5%BD%A2%E9%9D%A2%E7%A7%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="慢蜗牛">
+      <meta itemprop="description" content="share!!!free!!!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SlowSnail">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/10/14/C%E8%AF%AD%E8%A8%80%E6%B1%82%E6%A2%AF%E5%BD%A2%E9%9D%A2%E7%A7%AF/" class="post-title-link" itemprop="url">C语言求梯形面积</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-10-14 15:12:08 / 修改时间：15:15:04" itemprop="dateCreated datePublished" datetime="2021-10-14T15:12:08+08:00">2021-10-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/C/%E4%BD%9C%E4%B8%9A/" itemprop="url" rel="index"><span itemprop="name">作业</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan：</span>
+    
+    
+      <a title="changyan" href="/2021/10/14/C%E8%AF%AD%E8%A8%80%E6%B1%82%E6%A2%AF%E5%BD%A2%E9%9D%A2%E7%A7%AF/#SOHUCS" itemprop="discussionUrl">
+        <span id="url::https://slowsnail22.github.io/2021/10/14/C%E8%AF%AD%E8%A8%80%E6%B1%82%E6%A2%AF%E5%BD%A2%E9%9D%A2%E7%A7%AF/" class="cy_cmt_count" data-xid="2021/10/14/C语言求梯形面积/" itemprop="commentCount"></span>
+      </a>
+    
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>203</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>C语言从键盘上输入一个梯形的上底a、下底b和高h，输出梯形的面积。</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;stdio.h></span></span>
+ 
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+ 
+<span class="token punctuation">&#123;</span>
+ 
+ <span class="token keyword">double</span> a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> h<span class="token punctuation">,</span> s<span class="token punctuation">;</span><span class="token comment">//定义变量，上底，下底，高，面积</span>
+ 
+ <span class="token function">scanf_s</span><span class="token punctuation">(</span><span class="token string">"%lf,%lf,%lf"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>a<span class="token punctuation">,</span> <span class="token operator">&amp;</span>b<span class="token punctuation">,</span> <span class="token operator">&amp;</span>h<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//输入</span>
+ 
+ s <span class="token operator">=</span> <span class="token punctuation">(</span>a <span class="token operator">+</span> b<span class="token punctuation">)</span> <span class="token operator">*</span> h <span class="token operator">/</span> <span class="token number">2.0</span><span class="token punctuation">;</span><span class="token comment">//计算面积</span>
+ 
+ <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%lf"</span><span class="token punctuation">,</span> s<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//输出面积</span>
+ 
+ <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+ 
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://slowsnail22.github.io/2021/05/30/python%E4%B9%8B%E5%A4%9A%E6%80%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="慢蜗牛">
+      <meta itemprop="description" content="share!!!free!!!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SlowSnail">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/05/30/python%E4%B9%8B%E5%A4%9A%E6%80%81/" class="post-title-link" itemprop="url">python之多态</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-05-30 17:05:22 / 修改时间：17:35:34" itemprop="dateCreated datePublished" datetime="2021-05-30T17:05:22+08:00">2021-05-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/python/%E5%85%A5%E9%97%A8/" itemprop="url" rel="index"><span itemprop="name">入门</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan：</span>
+    
+    
+      <a title="changyan" href="/2021/05/30/python%E4%B9%8B%E5%A4%9A%E6%80%81/#SOHUCS" itemprop="discussionUrl">
+        <span id="url::https://slowsnail22.github.io/2021/05/30/python%E4%B9%8B%E5%A4%9A%E6%80%81/" class="cy_cmt_count" data-xid="2021/05/30/python之多态/" itemprop="commentCount"></span>
+      </a>
+    
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h1><p>简单地说，多态就是“拥有多种形态”，它是指：就算不知道一个变量引用的对象是什么类型，仍然可以通过这个变量调用方法，在运行过程中根据变量所引用对象的类型，动态决定调用哪个对象的方法</p>
+<p>我们先来看看这段代码，关于括号内的object类可以看看<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_53762188/article/details/117040415">python之object类</a>这篇文章</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Animal</span><span class="token punctuation">(</span><span class="token builtin">object</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">eat</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'动物要吃东西'</span><span class="token punctuation">)</span>
+ 
+ 
+<span class="token keyword">class</span> <span class="token class-name">Dog</span><span class="token punctuation">(</span>Animal<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">eat</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'欧迪吃狗粮'</span><span class="token punctuation">)</span>
+ 
+ 
+<span class="token keyword">class</span> <span class="token class-name">Cat</span><span class="token punctuation">(</span>Animal<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">eat</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'加菲猫吃千层面'</span><span class="token punctuation">)</span>
+ 
+ 
+<span class="token keyword">class</span> <span class="token class-name">SWS</span><span class="token punctuation">(</span><span class="token builtin">object</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">eat</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'慢蜗牛吃饭'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/30/python%E4%B9%8B%E5%A4%9A%E6%80%81/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://slowsnail22.github.io/2021/05/30/python%E4%B9%8B%E7%BB%A7%E6%89%BF%E5%8F%8A%E5%85%B6%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="慢蜗牛">
+      <meta itemprop="description" content="share!!!free!!!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SlowSnail">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/05/30/python%E4%B9%8B%E7%BB%A7%E6%89%BF%E5%8F%8A%E5%85%B6%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">python之继承及其实现方法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-05-30 16:54:28 / 修改时间：18:14:27" itemprop="dateCreated datePublished" datetime="2021-05-30T16:54:28+08:00">2021-05-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/python/%E5%85%A5%E9%97%A8/" itemprop="url" rel="index"><span itemprop="name">入门</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan：</span>
+    
+    
+      <a title="changyan" href="/2021/05/30/python%E4%B9%8B%E7%BB%A7%E6%89%BF%E5%8F%8A%E5%85%B6%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/#SOHUCS" itemprop="discussionUrl">
+        <span id="url::https://slowsnail22.github.io/2021/05/30/python%E4%B9%8B%E7%BB%A7%E6%89%BF%E5%8F%8A%E5%85%B6%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/" class="cy_cmt_count" data-xid="2021/05/30/python之继承及其实现方法/" itemprop="commentCount"></span>
+      </a>
+    
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>771</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h1><h2 id="语法格式"><a href="#语法格式" class="headerlink" title="语法格式"></a>语法格式</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> 子类类名<span class="token punctuation">(</span>父类<span class="token number">1</span><span class="token punctuation">,</span> 父类<span class="token number">2</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">pass</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>如果一个类没有继承任何类，则默认继承object</p>
+<p>python支持多继承</p>
+<p>定义子类时，必须在其构造函数中调用父类的构造函数</p>
+<p>这之间的继承关系就如同血缘继承一般</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/30/python%E4%B9%8B%E7%BB%A7%E6%89%BF%E5%8F%8A%E5%85%B6%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://slowsnail22.github.io/2021/05/30/python%E4%B9%8B%E5%B0%81%E8%A3%85%E5%8F%8A%E7%A7%81%E6%9C%89%E6%96%B9%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="慢蜗牛">
+      <meta itemprop="description" content="share!!!free!!!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SlowSnail">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/05/30/python%E4%B9%8B%E5%B0%81%E8%A3%85%E5%8F%8A%E7%A7%81%E6%9C%89%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">python之封装及私有方法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-05-30 16:46:32 / 修改时间：18:13:30" itemprop="dateCreated datePublished" datetime="2021-05-30T16:46:32+08:00">2021-05-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/python/%E5%85%A5%E9%97%A8/" itemprop="url" rel="index"><span itemprop="name">入门</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan：</span>
+    
+    
+      <a title="changyan" href="/2021/05/30/python%E4%B9%8B%E5%B0%81%E8%A3%85%E5%8F%8A%E7%A7%81%E6%9C%89%E6%96%B9%E6%B3%95/#SOHUCS" itemprop="discussionUrl">
+        <span id="url::https://slowsnail22.github.io/2021/05/30/python%E4%B9%8B%E5%B0%81%E8%A3%85%E5%8F%8A%E7%A7%81%E6%9C%89%E6%96%B9%E6%B3%95/" class="cy_cmt_count" data-xid="2021/05/30/python之封装及私有方法/" itemprop="commentCount"></span>
+      </a>
+    
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>封装：提高程序的安全性</p>
+<ul>
+<li>将属性和方法包装到类对象中，在方法内部对属性进行操作，在类对象外部调用方法，使得程序更加简洁</li>
+<li>在python中，如果该属性不希望在类对象外部被访问，前边可以加两个“_”</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/30/python%E4%B9%8B%E5%B0%81%E8%A3%85%E5%8F%8A%E7%A7%81%E6%9C%89%E6%96%B9%E6%B3%95/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://slowsnail22.github.io/2021/05/30/python%E4%B9%8B%E7%89%B9%E6%AE%8A%E5%B1%9E%E6%80%A7%E5%92%8C%E7%89%B9%E6%AE%8A%E6%96%B9%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="慢蜗牛">
+      <meta itemprop="description" content="share!!!free!!!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SlowSnail">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/05/30/python%E4%B9%8B%E7%89%B9%E6%AE%8A%E5%B1%9E%E6%80%A7%E5%92%8C%E7%89%B9%E6%AE%8A%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">python之特殊属性和特殊方法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-05-30 16:34:04 / 修改时间：18:17:24" itemprop="dateCreated datePublished" datetime="2021-05-30T16:34:04+08:00">2021-05-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/python/%E5%85%A5%E9%97%A8/" itemprop="url" rel="index"><span itemprop="name">入门</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan：</span>
+    
+    
+      <a title="changyan" href="/2021/05/30/python%E4%B9%8B%E7%89%B9%E6%AE%8A%E5%B1%9E%E6%80%A7%E5%92%8C%E7%89%B9%E6%AE%8A%E6%96%B9%E6%B3%95/#SOHUCS" itemprop="discussionUrl">
+        <span id="url::https://slowsnail22.github.io/2021/05/30/python%E4%B9%8B%E7%89%B9%E6%AE%8A%E5%B1%9E%E6%80%A7%E5%92%8C%E7%89%B9%E6%AE%8A%E6%96%B9%E6%B3%95/" class="cy_cmt_count" data-xid="2021/05/30/python之特殊属性和特殊方法/" itemprop="commentCount"></span>
+      </a>
+    
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>分享完了面对对象的三大特征：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_53762188/article/details/116999907">封装</a>、<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_53762188/article/details/117000917">继承</a>和<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_53762188/article/details/117109717">多态</a>之后，我们再来看一下特殊属性和特殊方法</p>
+<ul>
+<li><p>特殊属性</p>
+<ul>
+<li>_<em>dict</em>_:获得类对象或实例对象所绑定的所有属性和方法的字典</li>
+<li>_<em>class</em>_:查看对象所属类</li>
+<li>_<em>bases</em>_:查看子类继承的父类</li>
+<li>_<em>mro</em>_:查看类的层次结构</li>
+<li>_<em>subclasses</em>_:查看父类被继承的子类</li>
+</ul>
+</li>
+<li><p>特殊方法</p>
+<ul>
+<li>_<em>len</em>_():通过重写，让内置函数len()的参数可以是自定义类型</li>
+<li>_<em>add</em>_():通过重写，可使用自定义对象具有“+”功能</li>
+<li>_<em>new</em>_():用于创建对象</li>
+<li>_<em>init</em>_():对创建对象进行初始化</li>
+</ul>
+</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/30/python%E4%B9%8B%E7%89%B9%E6%AE%8A%E5%B1%9E%E6%80%A7%E5%92%8C%E7%89%B9%E6%AE%8A%E6%96%B9%E6%B3%95/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://slowsnail22.github.io/2021/05/30/C%E8%AF%AD%E8%A8%80%E6%B1%82%E7%B4%A0%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="慢蜗牛">
+      <meta itemprop="description" content="share!!!free!!!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SlowSnail">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/05/30/C%E8%AF%AD%E8%A8%80%E6%B1%82%E7%B4%A0%E6%95%B0/" class="post-title-link" itemprop="url">C语言求素数</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-05-30 16:31:08 / 修改时间：17:37:45" itemprop="dateCreated datePublished" datetime="2021-05-30T16:31:08+08:00">2021-05-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/C/%E4%BD%9C%E4%B8%9A/" itemprop="url" rel="index"><span itemprop="name">作业</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan：</span>
+    
+    
+      <a title="changyan" href="/2021/05/30/C%E8%AF%AD%E8%A8%80%E6%B1%82%E7%B4%A0%E6%95%B0/#SOHUCS" itemprop="discussionUrl">
+        <span id="url::https://slowsnail22.github.io/2021/05/30/C%E8%AF%AD%E8%A8%80%E6%B1%82%E7%B4%A0%E6%95%B0/" class="cy_cmt_count" data-xid="2021/05/30/C语言求素数/" itemprop="commentCount"></span>
+      </a>
+    
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>474</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>C语言求100以内的全部素数，每行输出10个。</p>
+<p>素数就是只能被1和自身整除的正整数，1不是素数，2是素数。要求定义和调用函数prime(m)判断m是否为素数，当m为素数时返回1，否则返回0。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/30/C%E8%AF%AD%E8%A8%80%E6%B1%82%E7%B4%A0%E6%95%B0/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -573,277 +1458,8 @@ list_1<span class="token punctuation">.</span>append<span class="token punctuati
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://slowsnail22.github.io/2021/05/29/numpy%E6%95%B0%E7%BB%84%E5%9F%BA%E7%A1%80/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="慢蜗牛">
-      <meta itemprop="description" content="share!!!free!!!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SlowSnail">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/05/29/numpy%E6%95%B0%E7%BB%84%E5%9F%BA%E7%A1%80/" class="post-title-link" itemprop="url">numpy数组基础</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-05-29 20:16:39" itemprop="dateCreated datePublished" datetime="2021-05-29T20:16:39+08:00">2021-05-29</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-05-30 17:39:01" itemprop="dateModified" datetime="2021-05-30T17:39:01+08:00">2021-05-30</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/python/numpy/" itemprop="url" rel="index"><span itemprop="name">numpy</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Changyan：</span>
-    
-    
-      <a title="changyan" href="/2021/05/29/numpy%E6%95%B0%E7%BB%84%E5%9F%BA%E7%A1%80/#SOHUCS" itemprop="discussionUrl">
-        <span id="url::https://slowsnail22.github.io/2021/05/29/numpy%E6%95%B0%E7%BB%84%E5%9F%BA%E7%A1%80/" class="cy_cmt_count" data-xid="2021/05/29/numpy数组基础/" itemprop="commentCount"></span>
-      </a>
-    
-  </span>
-  
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>2.1k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="NUMPY"><a href="#NUMPY" class="headerlink" title="NUMPY"></a>NUMPY</h1><h2 id="创建数组"><a href="#创建数组" class="headerlink" title="创建数组"></a>创建数组</h2><p>在numpy中，创建数组有很多种方法，例如如下的例子：</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
-sws_1 <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-sws_2 <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-sws_3 <span class="token operator">=</span> np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span> 
-sws_4 <span class="token operator">=</span> np<span class="token punctuation">.</span>linspace<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">2</span> <span class="token operator">*</span> np<span class="token punctuation">.</span>pi<span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span>
- 
-<span class="token keyword">print</span><span class="token punctuation">(</span>sws_1<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  <span class="token comment"># 切片</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>sws_2<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>sws_3<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>sws_4<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>sws_1<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
- 
-<span class="token comment">######</span>
-<span class="token punctuation">[</span><span class="token number">0</span> <span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span> <span class="token number">4</span><span class="token punctuation">]</span>
-<span class="token punctuation">[</span><span class="token number">0</span> <span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span> <span class="token number">4</span><span class="token punctuation">]</span>
-<span class="token punctuation">[</span><span class="token number">0</span> <span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span> <span class="token number">4</span><span class="token punctuation">]</span>
-<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">.</span>         <span class="token number">1.57079633</span> <span class="token number">3.14159265</span> <span class="token number">4.71238898</span> <span class="token number">6.28318531</span><span class="token punctuation">]</span>
-<span class="token number">3</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/05/29/numpy%E6%95%B0%E7%BB%84%E5%9F%BA%E7%A1%80/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://slowsnail22.github.io/2021/05/29/python%E5%87%BD%E6%95%B0str()%E9%81%BF%E5%85%8D%E7%B1%BB%E5%9E%8B%E9%94%99%E8%AF%AF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="慢蜗牛">
-      <meta itemprop="description" content="share!!!free!!!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SlowSnail">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/05/29/python%E5%87%BD%E6%95%B0str()%E9%81%BF%E5%85%8D%E7%B1%BB%E5%9E%8B%E9%94%99%E8%AF%AF/" class="post-title-link" itemprop="url">python函数str()避免类型错误</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-05-29 20:15:26" itemprop="dateCreated datePublished" datetime="2021-05-29T20:15:26+08:00">2021-05-29</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-05-30 17:39:30" itemprop="dateModified" datetime="2021-05-30T17:39:30+08:00">2021-05-30</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/python/%E5%85%A5%E9%97%A8/" itemprop="url" rel="index"><span itemprop="name">入门</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Changyan：</span>
-    
-    
-      <a title="changyan" href="/2021/05/29/python%E5%87%BD%E6%95%B0str()%E9%81%BF%E5%85%8D%E7%B1%BB%E5%9E%8B%E9%94%99%E8%AF%AF/#SOHUCS" itemprop="discussionUrl">
-        <span id="url::https://slowsnail22.github.io/2021/05/29/python%E5%87%BD%E6%95%B0str()%E9%81%BF%E5%85%8D%E7%B1%BB%E5%9E%8B%E9%94%99%E8%AF%AF/" class="cy_cmt_count" data-xid="2021/05/29/python函数str()避免类型错误/" itemprop="commentCount"></span>
-      </a>
-    
-  </span>
-  
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>434</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>python中当输出需要拼接字符串(char)和整数(int)时，需要用到str()函数</p>
-<p>如果编写如下代码：</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">age <span class="token operator">=</span> <span class="token number">23</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Happy "</span> <span class="token operator">+</span> age <span class="token operator">+</span><span class="token string">"ed Birthday!"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>会出现如下报错：</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/05/29/python%E5%87%BD%E6%95%B0str()%E9%81%BF%E5%85%8D%E7%B1%BB%E5%9E%8B%E9%94%99%E8%AF%AF/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 <script src="/js/comments.js"></script>
 </div>
@@ -867,14 +1483,14 @@ sws_4 <span class="token operator">=</span> np<span class="token punctuation">.<
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">27k</span>
+    <span title="站点总字数">37k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">25 分钟</span>
+    <span title="站点阅读时长">33 分钟</span>
   </span>
 </div>
 <div class="busuanzi-count">

@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-sws.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-sws.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-sws.png">
+  <link rel="mask-icon" href="/images/logo-sws.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic%7CLobster+Two:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;slowsnail22.github.io&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Gemini&quot;,&quot;version&quot;:&quot;8.4.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;width&quot;:240,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:true,&quot;bookmark&quot;:{&quot;enable&quot;:true,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:true,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:false}}</script>
+<meta name="description" content="进入 Matlab 7.3 集成开发环境，并打开脚本编辑器。 在脚本编辑器中编写一段程序，要求：(1) 读入存放在 tire.tif 中的原始图像；(2) 用函数 histeq 对该图像进行直方图均衡化处理，并显示结果图像；(3) 用函数 imhist 分别对原始图像和直方图均衡化后图像进行直方图统计，并显示结果。 将编写的程序保存为 Example3_2_3EquGrayImage1.m 。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数字图像处理实验五直方图均衡化和规定化">
+<meta property="og:url" content="https://slowsnail22.github.io/2022/04/06/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E4%BA%94%E7%9B%B4%E6%96%B9%E5%9B%BE%E5%9D%87%E8%A1%A1%E5%8C%96%E5%92%8C%E8%A7%84%E5%AE%9A%E5%8C%96/index.html">
+<meta property="og:site_name" content="SlowSnail">
+<meta property="og:description" content="进入 Matlab 7.3 集成开发环境，并打开脚本编辑器。 在脚本编辑器中编写一段程序，要求：(1) 读入存放在 tire.tif 中的原始图像；(2) 用函数 histeq 对该图像进行直方图均衡化处理，并显示结果图像；(3) 用函数 imhist 分别对原始图像和直方图均衡化后图像进行直方图统计，并显示结果。 将编写的程序保存为 Example3_2_3EquGrayImage1.m 。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/557982a8f5b84c308ca710357e7def0d.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAU2xvdy1TbmFpbA==,size_18,color_FFFFFF,t_70,g_se,x_16">
+<meta property="article:published_time" content="2022-04-06T09:42:01.000Z">
+<meta property="article:modified_time" content="2022-04-06T09:43:39.545Z">
+<meta property="article:author" content="慢蜗牛">
+<meta property="article:tag" content="matlab">
+<meta property="article:tag" content="数字图像处理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/557982a8f5b84c308ca710357e7def0d.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAU2xvdy1TbmFpbA==,size_18,color_FFFFFF,t_70,g_se,x_16">
+
+
+<link rel="canonical" href="https://slowsnail22.github.io/2022/04/06/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E4%BA%94%E7%9B%B4%E6%96%B9%E5%9B%BE%E5%9D%87%E8%A1%A1%E5%8C%96%E5%92%8C%E8%A7%84%E5%AE%9A%E5%8C%96/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;slowsnail22.github.io&#x2F;2022&#x2F;04&#x2F;06&#x2F;%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E4%BA%94%E7%9B%B4%E6%96%B9%E5%9B%BE%E5%9D%87%E8%A1%A1%E5%8C%96%E5%92%8C%E8%A7%84%E5%AE%9A%E5%8C%96&#x2F;&quot;,&quot;path&quot;:&quot;2022&#x2F;04&#x2F;06&#x2F;数字图像处理实验五直方图均衡化和规定化&#x2F;&quot;,&quot;title&quot;:&quot;数字图像处理实验五直方图均衡化和规定化&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>数字图像处理实验五直方图均衡化和规定化 | SlowSnail</title><script src="/js/config.js"></script><link rel="stylesheet" type="text/css" href="/css/injector/main.css" /><link rel="preload" as="style" href="/css/injector/light.css" /><link rel="preload" as="style" href="/css/injector/dark.css" />
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">SlowSnail</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">免费</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-主页"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>主页</a></li>
+        <li class="menu-item menu-item-简介"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>简介</a></li>
+        <li class="menu-item menu-item-留言"><a href="/message" rel="section"><i class="fas fa-comment-dots fa-fw"></i>留言</a></li>
+        <li class="menu-item menu-item-标签"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-分类"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-时间线"><a href="/archives/" rel="section"><i class="fas fa-stream fa-fw"></i>时间线</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="慢蜗牛"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">慢蜗牛</p>
+  <div class="site-description" itemprop="description">share!!!free!!!</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/SlowSnail22" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;SlowSnail22" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:SlowSnail22@outlook.com" title="E-Mail → mailto:SlowSnail22@outlook.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/qq_53762188" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_53762188" rel="noopener" target="_blank"><i class="fab fa-cuttlefish fa-fw"></i>CSDN</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://slowsnail22.github.io/2022/04/06/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E4%BA%94%E7%9B%B4%E6%96%B9%E5%9B%BE%E5%9D%87%E8%A1%A1%E5%8C%96%E5%92%8C%E8%A7%84%E5%AE%9A%E5%8C%96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="慢蜗牛">
+      <meta itemprop="description" content="share!!!free!!!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SlowSnail">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          数字图像处理实验五直方图均衡化和规定化
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-04-06 17:42:01 / 修改时间：17:43:39" itemprop="dateCreated datePublished" datetime="2022-04-06T17:42:01+08:00">2022-04-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">数字图像处理</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/%E5%85%A5%E9%97%A8/" itemprop="url" rel="index"><span itemprop="name">入门</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan：</span>
+    
+    
+      <a title="changyan" href="/2022/04/06/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E4%BA%94%E7%9B%B4%E6%96%B9%E5%9B%BE%E5%9D%87%E8%A1%A1%E5%8C%96%E5%92%8C%E8%A7%84%E5%AE%9A%E5%8C%96/#SOHUCS" itemprop="discussionUrl">
+        <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2022/04/06/数字图像处理实验五直方图均衡化和规定化/" itemprop="commentCount"></span>
+      </a>
+    
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <ol>
+<li>进入 Matlab 7.3 集成开发环境，并打开脚本编辑器。</li>
+<li>在脚本编辑器中编写一段程序，要求：<br>(1) 读入存放在 tire.tif 中的原始图像；<br>(2) 用函数 histeq 对该图像进行直方图均衡化处理，并显示结果图像；<br>(3) 用函数 imhist 分别对原始图像和直方图均衡化后图像进行直方图统计，并显示结果。</li>
+<li>将编写的程序保存为 Example3_2_3EquGrayImage1.m 。</li>
+<li>运行该程序，并比较原始图像与结果图像，以结果来检验直方图均衡化增强的效果。</li>
+<li>修改原来的程序，将所有图像放置在一个窗口中显示对比，并：<br>(1) 用 load woman 调入一幅索引图像进行直方图均衡化处理；<br>(2) 读入存放在 lena.jpg 中的原始图像，用该图像的直方图去规定化 tire.tif图像的直方图，并统计直方图规定化后图像的直方图与 lena.jpg 图像直方图，进行比较；<br>(3) 将结果保存在 Example3_2_3EquGrayImage2.m 中，并运行验证结果。</li>
+</ol>
+<span id="more"></span>
+
+<pre class="line-numbers language-matlab" data-language="matlab"><code class="language-matlab"><span class="token comment">%%Example3_2_3EquGrayImage1</span>
+clear<span class="token punctuation">;</span>
+clc<span class="token punctuation">;</span>
+ 
+TIF<span class="token operator">=</span><span class="token function">imread</span><span class="token punctuation">(</span><span class="token string">'tire.tif'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">%%读入TIF图像</span>
+ 
+J<span class="token operator">=</span><span class="token function">histeq</span><span class="token punctuation">(</span>TIF<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">%%函数 histeq 对该图像进行直方图均衡化处理</span>
+H<span class="token punctuation">.</span>color<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment">%%设置背景为白色，打开原图像</span>
+<span class="token function">figure</span><span class="token punctuation">(</span>H<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">subplot</span><span class="token punctuation">(</span><span class="token number">221</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">imshow</span><span class="token punctuation">(</span>J<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">title</span><span class="token punctuation">(</span><span class="token string">'直方图均衡化处理图'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">subplot</span><span class="token punctuation">(</span><span class="token number">222</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">imhist</span><span class="token punctuation">(</span>J<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">subplot</span><span class="token punctuation">(</span><span class="token number">223</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">imshow</span><span class="token punctuation">(</span>TIF<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">title</span><span class="token punctuation">(</span><span class="token string">'原图'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">subplot</span><span class="token punctuation">(</span><span class="token number">224</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">imhist</span><span class="token punctuation">(</span>TIF<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-matlab" data-language="matlab"><code class="language-matlab"><span class="token comment">%%Example3_2_3EquGrayImage2</span>
+clear<span class="token punctuation">;</span>
+clc<span class="token punctuation">;</span>
+TIF<span class="token operator">=</span><span class="token function">imread</span><span class="token punctuation">(</span><span class="token string">'tire.tif'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">%%读入TIF图像</span>
+ 
+<span class="token comment">%%函数 histeq 对该图像进行直方图均衡化处理</span>
+J<span class="token operator">=</span><span class="token function">histeq</span><span class="token punctuation">(</span>TIF<span class="token punctuation">)</span><span class="token punctuation">;</span>
+H<span class="token punctuation">.</span>color<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment">%%设置背景为白色，打开原图像</span>
+<span class="token function">figure</span><span class="token punctuation">(</span>H<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">subplot</span><span class="token punctuation">(</span><span class="token number">221</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">imshow</span><span class="token punctuation">(</span>J<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">title</span><span class="token punctuation">(</span><span class="token string">'直方图均衡化处理图'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">subplot</span><span class="token punctuation">(</span><span class="token number">222</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">imhist</span><span class="token punctuation">(</span>J<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">subplot</span><span class="token punctuation">(</span><span class="token number">223</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">imshow</span><span class="token punctuation">(</span>TIF<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">title</span><span class="token punctuation">(</span><span class="token string">'原图'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">subplot</span><span class="token punctuation">(</span><span class="token number">224</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">imhist</span><span class="token punctuation">(</span>TIF<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ 
+<span class="token comment">%%调入一幅索引图像进行直方图均衡化处理</span>
+RGB<span class="token operator">=</span><span class="token function">imread</span><span class="token punctuation">(</span><span class="token string">'greenleaf.jpg'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">%%读入RGB图像</span>
+<span class="token punctuation">[</span>X<span class="token punctuation">,</span>map<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">rgb2ind</span><span class="token punctuation">(</span>RGB<span class="token punctuation">,</span><span class="token number">64</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">%%转化为64级索引图象</span>
+newmap<span class="token operator">=</span><span class="token function">histeq</span><span class="token punctuation">(</span>X<span class="token punctuation">,</span>map<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">figure</span><span class="token punctuation">(</span>H<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">subplot</span><span class="token punctuation">(</span><span class="token number">121</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">imshow</span><span class="token punctuation">(</span>X<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">title</span><span class="token punctuation">(</span><span class="token string">'索引图像'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">subplot</span><span class="token punctuation">(</span><span class="token number">122</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">imshow</span><span class="token punctuation">(</span>newmap<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">title</span><span class="token punctuation">(</span><span class="token string">'索引图像-直方图均衡化处理图'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ 
+<span class="token comment">%%用图像的直方图去规定化tire.tif图像的直方图</span>
+E<span class="token operator">=</span><span class="token function">histeq</span><span class="token punctuation">(</span>RGB<span class="token punctuation">,</span>J<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">figure</span><span class="token punctuation">(</span>H<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">subplot</span><span class="token punctuation">(</span><span class="token number">121</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">imshow</span><span class="token punctuation">(</span>E<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">subplot</span><span class="token punctuation">(</span><span class="token number">122</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">imshow</span><span class="token punctuation">(</span>TIF<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://img-blog.csdnimg.cn/557982a8f5b84c308ca710357e7def0d.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAU2xvdy1TbmFpbA==,size_18,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>慢蜗牛
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://slowsnail22.github.io/2022/04/06/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E4%BA%94%E7%9B%B4%E6%96%B9%E5%9B%BE%E5%9D%87%E8%A1%A1%E5%8C%96%E5%92%8C%E8%A7%84%E5%AE%9A%E5%8C%96/" title="数字图像处理实验五直方图均衡化和规定化">https://slowsnail22.github.io/2022/04/06/数字图像处理实验五直方图均衡化和规定化/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/matlab/" rel="tag"><i class="fa fa-tag"></i> matlab</a>
+              <a href="/tags/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" rel="tag"><i class="fa fa-tag"></i> 数字图像处理</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/04/06/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E5%9B%9B%E5%AF%B9%E6%AF%94%E5%BA%A6%E5%A2%9E%E5%BC%BA/" rel="prev" title="数字图像处理实验四对比度增强">
+                  <i class="fa fa-chevron-left"></i> 数字图像处理实验四对比度增强
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/04/06/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E5%85%AD%E5%99%AA%E5%A3%B0%E6%B7%BB%E5%8A%A0%E5%92%8C%E7%A9%BA%E5%9F%9F%E6%BB%A4%E6%B3%A2/" rel="next" title="数字图像处理实验六噪声添加和空域滤波">
+                  数字图像处理实验六噪声添加和空域滤波 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="SOHUCS"></div><script src="/js/comments.js"></script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fab fa-studiovinari"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">慢蜗牛</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">37k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">33 分钟</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script class="next-config" data-name="changyan" type="application/json">{&quot;enable&quot;:true,&quot;appid&quot;:&quot;cyvtQTBic&quot;,&quot;appkey&quot;:&quot;1322efb9f6b70166c2c66e57a16e3f6b&quot;}</script>
+<script src="/js/third-party/comments/changyan.js"></script>
+<div class="moon-menu">
+  <div class="moon-menu-items">
+    
+    <div id="moon-menu-item-back2bottom" class="moon-menu-item" onclick="back2bottom()">
+      <i class='fa fa-chevron-down'></i>    </div>
+    
+    <div id="moon-menu-item-back2top" class="moon-menu-item" onclick="back2top()">
+      <i class='fa fa-chevron-up'></i>    </div>
+    
+  </div>
+  <div class="moon-menu-button">
+    <svg class="moon-menu-bg">
+      <circle class="moon-menu-cricle" cx="50%" cy="50%" r="44%"></circle>
+      <circle class="moon-menu-border" cx="50%" cy="50%" r="48%"></circle>
+    </svg>
+    <div class="moon-menu-content">
+      <div class="moon-menu-icon"><i class='fas fa-ellipsis-v'></i></div>
+      <div class="moon-menu-text"></div>
+    </div>
+  </div>
+</div><script src="/js/injector.js"></script>
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
