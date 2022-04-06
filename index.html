@@ -244,10 +244,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-04-06 17:53:50 / 修改时间：17:55:53" itemprop="dateCreated datePublished" datetime="2022-04-06T17:53:50+08:00">2022-04-06</time>
+      <time title="创建时间：2022-04-06 17:53:50" itemprop="dateCreated datePublished" datetime="2022-04-06T17:53:50+08:00">2022-04-06</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2022-04-07 00:08:48" itemprop="dateModified" datetime="2022-04-07T00:08:48+08:00">2022-04-07</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -305,7 +311,13 @@
     
     <div class="post-body" itemprop="articleBody">
           <p> 自选一幅灰度图像，编写MATLAB程序，完成图像的傅里叶变换并显示图像傅里叶变换谱。</p>
-<p>1、快速图像傅里叶变换函数<br>$$<br> Y = fft2(X)<br>$$<br>2、将图像频谱零频分量移动到图像频谱中心<br>$$<br>Y = fftshift(X)<br>$$<br>3、显示频谱图像的时候考虑：复数能否显示出来？如果不能，尝试将幅度谱与相位谱分别显示出来。</p>
+<p>1、快速图像傅里叶变换函数</p>
+<pre class="line-numbers language-none"><code class="language-none">Y &#x3D; fft2(X)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>2、将图像频谱零频分量移动到图像频谱中心</p>
+<pre class="line-numbers language-none"><code class="language-none">Y &#x3D; fftshift(X)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>3、显示频谱图像的时候考虑：复数能否显示出来？如果不能，尝试将幅度谱与相位谱分别显示出来。</p>
 <p>4、如果频谱图像对比度较差，请考虑采用对比度增强算法显示频谱图象。</p>
 <p>5、对图像频谱做傅里叶反变换，并显示反变换后的图像。（注意频谱平移带来的问题）</p>
           <!--noindex-->
