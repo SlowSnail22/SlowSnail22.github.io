@@ -2869,7 +2869,7 @@ H<span class="token punctuation">.</span>color<span class="token operator">=</sp
     <url>/2022/04/10/%E5%85%8D%E8%B4%B9%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%90%AD%E5%BB%BA/</url>
     <content><![CDATA[<p>为了使后面hexo的个性搭建以及个人博客的发布操作简便，推荐大家下载以下软件，别忘了配置环境变量哦</p>
 <p><img src="https://img-blog.csdnimg.cn/20210531001208768.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzUzNzYyMTg4,size_16,color_FFFFFF,t_70" alt="img"></p>
-<h2 id="准备环境"><a href="#准备环境" class="headerlink" title="准备环境"></a>准备环境</h2><h3 id="Github"><a href="#Github" class="headerlink" title="Github"></a><a href="https://so.csdn.net/so/search?q=Github&spm=1001.2101.3001.7020">Github</a></h3><span id="more"></span>
+<h2 id="准备环境"><a href="#准备环境" class="headerlink" title="准备环境"></a>准备环境</h2><h3 id="Github"><a href="#Github" class="headerlink" title="Github"></a><a href="https://github.com/">Github</a></h3><span id="more"></span>
 
 <ul>
 <li>准备好github账号，并且创建好仓库<ul>
@@ -2881,10 +2881,7 @@ H<span class="token punctuation">.</span>color<span class="token operator">=</sp
 <h3 id="Node-js和Git"><a href="#Node-js和Git" class="headerlink" title="Node.js和Git"></a>Node.js和Git</h3><ul>
 <li> Hexo基于Node.js，搭建过程中还需要使用npm (Node.js 已带)和git，因此先搭建本地操作</li>
 </ul>
-<p>  环境，安装Node.js和Git。</p>
-<ul>
-<li><a href="https://nodejs.org/zh-cn">Node.js</a>、<a href="https://git-scm.com/downloads">Git</a></li>
-</ul>
+<p>  环境，安装<a href="https://nodejs.org/zh-cn">Node.js</a>、<a href="https://git-scm.com/downloads">Git</a></p>
 <p>Node.js下载长期支持版就可以</p>
 <p>Git下载安装时一路next到这一步时选择这样</p>
 <p><img src="https://img-blog.csdnimg.cn/202105302349052.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzUzNzYyMTg4,size_16,color_FFFFFF,t_70" alt="img"></p>
